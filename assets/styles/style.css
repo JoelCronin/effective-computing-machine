@@ -1,3 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
+
+*{
+  color: rgb(245, 245, 245);
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+}
+
 body{
-    background-color: grey;
+  background: rgb(37, 45, 51);
+}
+
+.box-3{
+  display: flex;
+  justify-content: center;
+
+}
+
+header{
+  margin-bottom: 10px;
+  margin-top: 50px;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input{
+  background: none;
+  font-size: 30px;
+  padding: 15px;
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.74);
+  border: none;
+  outline: none;
+}
+
+.input:active, .input:hover{
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.94);
+  cursor: pointer;
+  outline: none;
+}
+#search-button{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: rgb(37, 45, 51);
+
+}
+#search-button i{
+    color: rgb(255, 255, 255);
+    background: rgb(68, 82, 92);
+    padding: 18px;
+    font-size: 30px;
+    border-radius: 4px;
+    margin-left: 30px;
+
+}
+
+#search-button:hover{
+    cursor: pointer;
+
+}
+
+#search-button i:hover{
+    background: rgb(52, 63, 71);
+
+}
+
+.box-2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  max-width: 1500px;
+}
+
+.movie{
+  width: 275px;
+  margin: 10px;
+  user-select: none;
+  margin-bottom: 70px;
+
+}
+
+.container{
+  width: 200px;
+  height: 450px;
+}
+
+.poster{
+  width: 275px;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.74);
+}
+
+.poster:hover, .poster:active{
+  box-shadow: 0px 0px 30px 9px #000000;
+  cursor: pointer;
+
+}
+
+.rating{
+  text-align: center;
+  padding: 4px;
+  width: 50px;
+  border-radius: 40px;
+  background: rgb(251, 168, 34);
+  position: relative;
+  top: 30px;
+
+}
+
+.box-1{
+  display: flex;
+  justify-content: center;
+  width: 275px;
+}
+
+.title{
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  position: relative;
+  bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.date{
+  position: relative;
+  bottom: 25px;
+  font-size: 13px;
+  color: rgb(129, 159, 184);
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(37, 45, 51); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(179, 179, 179); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(102, 101, 101); 
 }
