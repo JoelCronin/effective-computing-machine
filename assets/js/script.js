@@ -51,5 +51,8 @@ function display_movies(){
 }
 
 
-display_movies();
+function init(){
+  display_movies();
+}
 
+init();

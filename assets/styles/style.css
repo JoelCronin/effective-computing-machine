@@ -1,77 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&display=swap');
 *{
-  color: rgb(245, 245, 245);
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
+  color: lightgray;
+  font-family: 'Cabin', sans-serif;
+  letter-spacing: 3px;
 }
 
 body{
-  background: rgb(37, 45, 51);
+  background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
+  zoom: 72%;
 }
 
 .box-3{
   display: flex;
   justify-content: center;
-
 }
 
 header{
   margin-bottom: 10px;
-  margin-top: 50px;
+  margin-top: 15px;
   width: 100%;
   height: 150px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
+header h1{
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 32px;
+  user-select: none;
+
+}
+
+.search-cont{
+  display: flex;
+}
+
 .input{
-  background: none;
+  background: rgba(37,45,51,1) ;
   font-size: 30px;
   padding: 15px;
-  width: 600px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.74);
+  border-radius: 2px;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.1);
   border: none;
   outline: none;
+  position: relative;
+  top: 10px;
+  width: 500px;
+  opacity: 0.8;
+  user-select: none;
 }
 
 .input:active, .input:hover{
-  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.94);
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.20);
   cursor: pointer;
   outline: none;
 }
+
 #search-button{
-    margin: 0px;
-    padding: 0px;
-    border: none;
-    background: rgb(37, 45, 51);
-
-
+  margin: 0px;
+  margin-right: 40px;
+  padding: 0px;
+  border: none;
+  background: rgb(65, 82, 94);
 }
+
 #search-button i{
     color: rgb(255, 255, 255);
-    background: rgb(68, 82, 92);
+    background: rgb(75, 158, 75);
     padding: 18px;
     font-size: 30px;
-    border-radius: 4px;
+    border-radius: 100%;
     margin-left: 30px;
-    box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.74);
-
-
+    box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
 }
 
 #search-button:hover{
     cursor: pointer;
-
 }
 
 #search-button i:hover{
-    background: rgb(52, 63, 71);
-    box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.94);
-
-
+  background: rgb(60, 125, 60);
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
 }
 
 .box-2{
@@ -79,12 +90,11 @@ header{
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: flex-end;
-  max-width: 1500px;
 }
 
 .movie{
   width: 275px;
-  margin: 10px;
+  margin: 25px 25px;
   user-select: none;
   margin-bottom: 70px;
 
@@ -97,13 +107,13 @@ header{
 
 .poster{
   width: 275px;
-  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.74);
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.37);
+  transition: box-shadow 0.5s;
 }
 
 .poster:hover, .poster:active{
-  box-shadow: 0px 0px 30px 9px #000000;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.87);
   cursor: pointer;
-
 }
 
 .rating{
@@ -114,7 +124,6 @@ header{
   background: rgb(251, 168, 34);
   position: relative;
   top: 30px;
-
 }
 
 .box-1{
@@ -125,7 +134,7 @@ header{
 
 .title{
   font-family: 'Lato', sans-serif;
-  font-weight: 600;
+  font-weight: lighter;
   position: relative;
   bottom: 10px;
   letter-spacing: 2px;
@@ -138,10 +147,11 @@ header{
   color: rgb(129, 159, 184);
 }
 
-
+.box-4{
+  margin-left: 290px;
+}
 ::-webkit-scrollbar {
   width: 10px;
-
 }
 
 ::-webkit-scrollbar-track {
@@ -154,4 +164,30 @@ header{
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(102, 101, 101); 
+}
+
+@media screen and (max-width: 1026px) {
+  header h1{
+    display: none;
+  }
+
+  .search-cont{
+    width: 80%;
+  }
+
+  header{
+    justify-content: center;
+  }
+
+  .input{
+    width: 100%;
+  }
+
+  .box-4{
+    margin-left: 0px;
+  }
+
+  #search-button{
+    display: none;
+  }
 }
