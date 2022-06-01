@@ -37,6 +37,7 @@
 
 .fa-solid:hover{
     cursor: pointer;
+    color: rgb(86, 193, 86);
     box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.27);
 }
 
@@ -45,8 +46,7 @@
     width: 280px;
 }
 
-.options section{
-    margin-left: 10px;
+.options section {
     font-size: 19px;
     padding: 20px;
     margin-bottom: 20px;
@@ -54,6 +54,7 @@
     user-select: none;
     transition: font-weight 0.5s, border-left-style 0.5s,  border-left-color 0.5s, background-color 0.5s;
 }
+
 
 .options section:hover{
     font-weight: bold;
@@ -72,6 +73,20 @@
     border-left-width: 7px;
 }
 
+.fa-fire-flame-curved, .fa-masks-theater, .fa-landmark, .fa-children, .fa-film, .fa-award, .fa-clock, .fa-arrow-trend-up{
+    color: white;
+    font-size: 28px;
+    padding: 0px;
+    margin-right: 15px;
+    margin-left: -3px;
+    position: relative;
+    top: 5px;
+}
+
+.fa-fire-flame-curved{
+    color: rgb(86, 193, 86);
+}
+
 .options hr{
     margin-top: 40px;
     color: lightgray;
@@ -82,8 +97,21 @@
     margin-top: 40px;
 }
 
+
 @media screen and (max-width: 1026px) {
     .sidebar{
-        display: none;
+        width: 100px;
+    }
+
+    .options{
+        width: 100px;
+    }
+
+    .options section{
+        visibility: hidden;
+    }
+    .fa-fire-flame-curved, .fa-masks-theater, .fa-landmark, .fa-children, .fa-film, .fa-award, .fa-clock, .fa-arrow-trend-up{
+        visibility: visible;
+        margin-left: 4px;
     }
 }

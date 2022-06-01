@@ -189,7 +189,10 @@ function display_movies(){
 }
 
 function init(){
-    display_movies();
-  }
+  display_movies();
+}
+
+
+
   
-  init();
+init();
