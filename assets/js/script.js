@@ -1,7 +1,16 @@
 var OMDBKey = "84b19fcd"
 var searchButton = document.getElementById('search-button')
 var rating = document.getElementById("rating")
+const box = document.getElementById("box")
 
+const api = "https://api.themoviedb.org/3";
+const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
+
+const most_popular_query = "/discover/movie?sort_by=popularity.desc"
+const inTheatures_query = "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22";
+const most_popular_kids_query = "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc";
+
+const poster_path = "https://image.tmdb.org/t/p/w1280";
 
 searchButton.addEventListener('click', function(event){
     event.preventDefault();
@@ -146,3 +155,9 @@ function display_movies(){
   function nextPageTitle(){
     console.log("title working")
 }
+
+function init(){
+    display_movies();
+  }
+  
+  init();

@@ -1,36 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link
-    rel="stylesheet"
-    href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
-  />
-  <link rel="stylesheet" href="./assets/css/style.css">
-    <title> Weather Tracker</title>
-  </head>
-  <header>
-    <div class="jumbotron jumbotron-fluid bg-warning" style="height: 180px;">
-      <div class="container">
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/navbar.css">
+    <link rel="icon" href="./assets/img/browser-icon.png">
+</head>
+<body>
+    
+    <div class="sidebar">
+   
+        <div class="sidebar-top">
+            <i class="fa-solid fa-user-astronaut"></i>
+            <span>Hi, Dave</span>
+        </div>
+
+        <div class="options">
+            <section id="pop">Popular Movies</section>
+            <section>In Theatures</section>
+            <section>History</section>
+            <section>Kids</section>
+            <section>New Movies</section>
+            <section>Top Rated</section>
+            <hr>
+            <section id="crack">Watch Later</section>
+            <section>Upcoming</section>
+
+        </div>
     </div>
-  </header>
-  <body>
-    <div class="top-container">
-      <div class="search-box">
-        <input type="text" class="form-control" id="search-bar" aria-label="Recipient's username" aria-describedby="button-addon2" value="">
-        <button class="button" id="search-button">Search</button>
-        <p id="rating"></p><hr>
- 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
+    <div class="box-4">
+        <header>
+            <h1>Popular Movies</h1>
+            <div class="search-cont">
+                <input class="input" type="search" placeholder="The Batman...">
+                <button id="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="box-3">
+            <div id="box" class="box-2"></div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/script.js"></script>
+
+<script src="https://kit.fontawesome.com/17aa9ecf2c.js" crossorigin="anonymous"></script>
 </html>
