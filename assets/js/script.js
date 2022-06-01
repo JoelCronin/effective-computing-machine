@@ -148,16 +148,19 @@ function display_movies(){
     });
   }
 
-  function nextPageImage(){
-      console.log("image working")
-  }
+function nextPageImage(){
+  console.log("image working")
+}
 
-  function nextPageTitle(){
-    console.log("title working")
+function nextPageTitle(){
+  console.log("title working")
 }
 
 function init(){
-    display_movies();
-  }
+  display_movies();
+}
+
+
+
   
-  init();
+init();
