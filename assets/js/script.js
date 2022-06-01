@@ -155,6 +155,7 @@ function display_movies(){
       console.log("image working")
       var imageQuery = event.target.id;
       window.location.href = "secondpage.html"
+      localStorage.setItem("title", event.target.id)
       
       loadNextPage();
 
