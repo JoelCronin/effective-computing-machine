@@ -21,31 +21,28 @@ searchButton.addEventListener('click', function(event){
     console.log(movie)
 
 
-    function getOMDBAPi(){
-        var requestUrl = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + movie
+    // function getOMDBAPi(){
+    //     var requestUrl = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + movie
     
-        fetch(requestUrl)
-            .then(function(response){
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-            console.log(data.Metascore)
-            let metaValue = data.Ratings[1].Value.substring(0, 2);
-            console.log(metaValue)
-            console.log(data.Ratings[1].Value)
-            console.log(data.imdbRating)
-            imdbValue = data.imdbRating * 10
-            console.log(imdbValue)
-            averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
-            finalAverage = (averageValue / 3)
-            console.log(averageValue)
-            console.log(finalAverage)
-            for(let i=0; i < results.length; i++){
-                rating_tag.innerText = finalAverage;
-              }
-        }) 
-    };
+    //     fetch(requestUrl)
+    //         .then(function(response){
+    //         return response.json();
+    //     })
+    //     .then(function (data) {
+    //         console.log(data);
+    //         console.log(data.Metascore)
+    //         let metaValue = data.Ratings[1].Value.substring(0, 2);
+    //         console.log(metaValue)
+    //         console.log(data.Ratings[1].Value)
+    //         console.log(data.imdbRating)
+    //         imdbValue = data.imdbRating * 10
+    //         console.log(imdbValue)
+    //         averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
+    //         finalAverage = (averageValue / 3)
+    //         console.log(averageValue)
+    //         console.log(finalAverage)
+    //     }) 
+    // };
 })
 
 // {
@@ -153,31 +150,30 @@ function display_movies(){
   function nextPageImage(event){
       event.preventDefault();
       console.log("image working")
-      var imageQuery = event.target.id;
       window.location.href = "secondpage.html"
       localStorage.setItem("title", event.target.id)
       
-      loadNextPage();
+    //   loadNextPage();
 
-      function loadNextPage(){
-          var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + imageQuery
+    //   function loadNextPage(){
+    //       var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + imageQuery
 
 
-          fetch(requestUrlImage)
-          .then(function(responseImage){
-             return responseImage.json(); 
-        })
-        .then(function(data){
-            console.log(data)
-            var dataObject = JSON.parse(localStorage.getItem("results"))
-            console.log(dataObject);
-            window.location.href = "secondpage.html"
-            console.log(dataObject[0].original_title)
-            console.log(dataObject[0].poster_path)
-            secondImage.src = dataObject[0].poster_path
-            secondTitle.textContent = dataObject[0].original_title
-        })
-      }
+    //       fetch(requestUrlImage)
+    //       .then(function(responseImage){
+    //          return responseImage.json(); 
+    //     })
+    //     .then(function(data){
+    //         console.log(data)
+    //         var dataObject = JSON.parse(localStorage.getItem("results"))
+    //         console.log(dataObject);
+    //         window.location.href = "secondpage.html"
+    //         console.log(dataObject[0].original_title)
+    //         console.log(dataObject[0].poster_path)
+    //         secondImage.src = dataObject[0].poster_path
+    //         secondTitle.textContent = dataObject[0].original_title
+    //     })
+    //   }
 
   }
 
@@ -185,8 +181,11 @@ function display_movies(){
 
 
 
-  function nextPageTitle(){
+  function nextPageTitle(event){
+    event.preventDefault();
     console.log("title working")
+    window.location.href = "secondpage.html"
+    localStorage.setItem("title", event.target.innerHTML)
 }
 
 function init(){
