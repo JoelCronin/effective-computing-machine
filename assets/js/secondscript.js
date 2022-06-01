@@ -30,10 +30,10 @@ function getOMDBData(){
     //   window.location.href = "secondpage.html"
     //   console.log(dataObject[0].original_title)
     //   console.log(dataObject[0].poster_path)
-      secondImage.src = data.Poster
-      secondTitle.textContent = data.Title
+      secondImage.src = data.Poster;
+      secondTitle.textContent = data.Title;
 
   })
 }
 
-getOMDBData();
+// loadData();

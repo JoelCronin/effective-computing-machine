@@ -185,8 +185,8 @@ function display_movies(){
 
 
 
-  function nextPageTitle(){
-    console.log("title working")
+function nextPageTitle(){
+  console.log("title working")
 }
 
 function init(){

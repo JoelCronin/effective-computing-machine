@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&display=swap');
+
+*{
+  color: lightgray;
+  font-family: 'Cabin', sans-serif;
+  letter-spacing: 3px;
+}
+
+body{
+    background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
+    zoom: 72%;
+}
+
+.box-4{
+  margin-left: 290px;
+}
+
+header{
+  margin-bottom: 10px;
+  margin-top: 15px;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid white; */
+
+}
+
+header h1{
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 32px;
+  user-select: none;
+  /* border: 1px solid white; */
+
+}
+
+.search-cont{
+  /* border: 1px solid white; */
+  max-width: 100px;
+  margin-right: 40px;
+}
+
+#search-button{
+  margin: 0px;
+  margin-right: 40px;
+  padding: 0px;
+  border: none;
+  background: rgb(65, 82, 94);
+}
+
+#search-button i{
+  color: rgb(255, 255, 255);
+  background: rgb(75, 158, 75);
+  padding: 18px;
+  font-size: 30px;
+  border-radius: 100%;
+  margin-left: 30px;
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+  transition: box-shadow 1.5s, background 0.5s;
+}
+
+#search-button:hover{
+    cursor: pointer;
+}
+
+#search-button i:hover{
+  background: rgb(60, 125, 60);
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+}
+
+.box-2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-end;
+  max-width: 2300px;
+}
+
+.box-3{
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid green; */
+  height: 100vh;
+}
+
+
+@media screen and (max-width: 1026px) {
+  .box-4{
+    margin-left: 100px;
+  }
+
+
+  /* header h1{
+    display: none;
+  } */
+
+  #search-cont{
+    background-color: none;
+  }
+  .search-cont{
+    width: 80%;
+  }
+
+}
