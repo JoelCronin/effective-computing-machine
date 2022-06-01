@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&display=swap');
+
+*{
+  color: lightgray;
+  font-family: 'Cabin', sans-serif;
+  letter-spacing: 3px;
+}
+
+body{
+    background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
+    zoom: 72%;
+}

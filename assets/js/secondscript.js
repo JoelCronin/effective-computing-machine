@@ -12,4 +12,4 @@ function loadData (data){
     secondTitle.textContent = dataObject[0].original_title
 }
 
-loadData();
+// loadData();

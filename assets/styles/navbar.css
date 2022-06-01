@@ -114,4 +114,14 @@
         visibility: visible;
         margin-left: 4px;
     }
+    .sidebar-top span{
+        display: none;
+      }
+    
+      .fa-user-astronaut{
+        position: relative;
+        right: 25px;
+      }
 }
+
+
