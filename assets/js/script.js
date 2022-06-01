@@ -2,6 +2,8 @@ var OMDBKey = "84b19fcd"
 var searchButton = document.getElementById('search-button')
 var rating = document.getElementById("rating")
 const box = document.getElementById("box")
+var secondImage = parent.document.getElementById("second-page-image")
+var secondTitle = parent.document.getElementById("second-page-title")
 
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -148,9 +150,39 @@ function display_movies(){
     });
   }
 
-  function nextPageImage(){
+  function nextPageImage(event){
+      event.preventDefault();
       console.log("image working")
+      var imageQuery = event.target.id;
+      window.location.href = "secondpage.html"
+      
+      loadNextPage();
+
+      function loadNextPage(){
+          var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + imageQuery
+
+
+          fetch(requestUrlImage)
+          .then(function(responseImage){
+             return responseImage.json(); 
+        })
+        .then(function(data){
+            console.log(data)
+            var dataObject = JSON.parse(localStorage.getItem("results"))
+            console.log(dataObject);
+            window.location.href = "secondpage.html"
+            console.log(dataObject[0].original_title)
+            console.log(dataObject[0].poster_path)
+            secondImage.src = dataObject[0].poster_path
+            secondTitle.textContent = dataObject[0].original_title
+        })
+      }
+
   }
+
+
+
+
 
   function nextPageTitle(){
     console.log("title working")
