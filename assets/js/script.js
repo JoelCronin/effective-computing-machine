@@ -131,7 +131,7 @@ function display_movies(url){
   .then(response => response.json())
   .then(data => {
     let results = data.results;
-    console.log(data)
+    // console.log(data)
     for(let i=0; i < results.length; i++){
       let movie_div = document.createElement("div");
       let container_div = document.createElement("div");
@@ -181,9 +181,16 @@ function display_movies(url){
 function nextPageImage(event){
     event.preventDefault();
     console.log("image working")
-    window.location.href = "secondpage.html"
+    // var title = event.target.id;
+    // var img = event.target.src;
+    // var titleHistory = JSON.parse(localStorage.getItem("titleHistory")) || [];
+    // var imgHistory  = JSON.parse(localStorage.getItem("imgHistory")) || [];
+    // titleHistory .push(title);
+    // imgHistory.push(img);
+    // localStorage.setItem("titleHistory", JSON.stringify("titleHistory"));
+    // localStorage.setItem("imgHistory", JSON.stringify("imgHistory"));
+    window.location.href = "./assets/pages/secondpage.html";
     localStorage.setItem("title", event.target.id)
-    
   //   loadNextPage();
 
   //   function loadNextPage(){
@@ -210,7 +217,7 @@ function nextPageImage(event){
 function nextPageTitle(event){
     event.preventDefault();
     console.log("title working")
-    window.location.href = "secondpage.html"
+    window.location.href = "./assets/pages/secondpage.html"
     localStorage.setItem("title", event.target.innerHTML)
 }
 

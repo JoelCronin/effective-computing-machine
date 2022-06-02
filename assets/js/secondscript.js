@@ -94,7 +94,7 @@ function getIMDBData(){
 
 function toHomepage(event){
   event.preventDefault();
-  window.location.href = "../pages/homepage.html";
+  window.location.href = "../../homepage.html";
 }
 
 

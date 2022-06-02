@@ -25,10 +25,18 @@ body{
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  opacity: 0.1;
-  /* filter: blur(9px); */
-  margin-left: 10px;
-  z-index: 10;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(40px);
+  z-index: -1;
+  width: 100%;
+
+
+  /* margin-left: 10px; */
   user-select: none;
 }
 .box-4{
@@ -143,19 +151,23 @@ header h1{
 
 .descript-box{
   max-width: 600px;
+  border: 1px solid white;
+  height: 827px;
+
 }
+
 
 .description{
   color: white;
-  padding: 20px;
-  font-size: 24px;
-  background-color: rgb(65, 82, 94);
-  background-color: rgb(65, 82, 94);
+  padding: 25px;
+  font-size: 20px;
+  background-color: none;
   border-radius: 6px;
-}
 
-.suggested-movies{
-  background-color: darkgray;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.50);
+} 
+
+.suggested-movies{ 
   height: 400px;
   width: 100%;
   background-color: rgb(65, 82, 94);
