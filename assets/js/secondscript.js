@@ -4,6 +4,7 @@ var similarMovie = "/discover/movie?with_genres=18&sort_by=popularity.desc"
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 var movieSecondPage = localStorage.getItem("title");
+var backButton = document.getElementById("back-button")
 // function loadData (data){
 //     console.log(data)
 //     var dataObject = JSON.parse(localStorage.getItem("results"))
@@ -74,7 +75,12 @@ function getOMDBData(){
 
 getOMDBData();
 
+backButton.addEventListener("click", toHomepage)
 
+function toHomepage(event){
+  event.preventDefault();
+  window.location.href = "index.html"
+}
 
 
 
