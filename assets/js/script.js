@@ -2,23 +2,37 @@ var OMDBKey = "84b19fcd"
 var searchButton = document.getElementById('search-button')
 var rating = document.getElementById("rating")
 const box = document.getElementById("box")
+var currentDate = new Date();
+var currentYear = currentDate.getFullYear();
+
+
+
+var sidebarBtn = document.querySelectorAll(".sidebarBtn");
 var secondImage = parent.document.getElementById("second-page-image")
 var secondTitle = parent.document.getElementById("second-page-title")
 
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
-
 const most_popular_query = "/discover/movie?sort_by=popularity.desc"
-const inTheatures_query = "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22";
+let lateDate = moment().add(1, "weeks").format("YYYY-MM-DD")
+let earlyDate = moment().subtract(4, "weeks").format("YYYY-MM-DD")
+const inTheatures_query = "/discover/movie?primary_release_date.gte=" + earlyDate + "&primary_release_date.lte=" + lateDate;
 const most_popular_kids_query = "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc";
-
+const new_movie_query = "/discover/movie?primary_release_year=" + currentYear;
 const poster_path = "https://image.tmdb.org/t/p/w1280";
+const topRated = "/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc";
 
-searchButton.addEventListener('click', function(event){
-    event.preventDefault();
-    var movie = document.getElementById("search-bar").value
-    getOMDBAPi();
-    console.log(movie)
+var urlPopular = api + most_popular_query + key;
+var urlInTheaters = api + inTheatures_query + key;
+var urlKids = api + most_popular_kids_query + key;
+var urlNewMovies = api + new_movie_query + key;
+var urlTopRated = api + topRated + key; 
+
+// searchButton.addEventListener('click', function(event){
+//     event.preventDefault();
+//     var movie = document.querySelector(".input").value
+    // getOMDBAPi();
+    // console.log(movie)
 
 
     // function getOMDBAPi(){
@@ -43,7 +57,20 @@ searchButton.addEventListener('click', function(event){
     //         console.log(finalAverage)
     //     }) 
     // };
+// })
+
+//set searchMovie function to display movies user searches for
+searchButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var movie = document.querySelector(".input").value
+    displaySearchMovie(movie);
 })
+
+function displaySearchMovie(movie) {
+    removeElements();
+    let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
+    display_movies(url);
+}
 
 // {
 //     "Title": "Braveheart",
@@ -99,99 +126,125 @@ searchButton.addEventListener('click', function(event){
 //     });
 //   }
 
-function display_movies(){
+function display_movies(url){
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    let results = data.results;
+    console.log(data)
+    for(let i=0; i < results.length; i++){
+      let movie_div = document.createElement("div");
+      let container_div = document.createElement("div");
+      let box_1_div = document.createElement("div");
+      // let rating_tag = document.createElement("p");
+      let img_tag = document.createElement("img");
+      let title_tag = document.createElement("h3");
+      let date_tag = document.createElement("p");
+    
+      movie_div.setAttribute("class", "movie");
+      container_div.setAttribute("class", "container");
+      box_1_div.setAttribute("class", "box-1");
+      // rating_tag.setAttribute("class", "rating");
+      img_tag.setAttribute("id", results[i].title );
+      img_tag.setAttribute("class", "poster");
+      title_tag.setAttribute("class", "title");
+      date_tag.setAttribute("class", "date");
+    
+      movie_div.appendChild(container_div);
+      container_div.appendChild(box_1_div);
+      // box_1_div.appendChild(rating_tag);
+      container_div.appendChild(img_tag);
+      container_div.appendChild(title_tag);
+      container_div.appendChild(date_tag);
 
-    fetch(api + most_popular_query + key)
-    .then(response => response.json())
-    .then(data => {
-      let results = data.results;
-  
-      for(let i=0; i < results.length; i++){
-        let movie_div = document.createElement("div");
-        let container_div = document.createElement("div");
-        let box_1_div = document.createElement("div");
-        // let rating_tag = document.createElement("p");
-        let img_tag = document.createElement("img");
-        let title_tag = document.createElement("h3");
-        let date_tag = document.createElement("p");
-      
-        movie_div.setAttribute("class", "movie");
-        container_div.setAttribute("class", "container");
-        box_1_div.setAttribute("class", "box-1");
-        // rating_tag.setAttribute("class", "rating");
-        img_tag.setAttribute("id", results[i].title );
-        img_tag.setAttribute("class", "poster");
-        title_tag.setAttribute("class", "title");
-        date_tag.setAttribute("class", "date");
-      
-        movie_div.appendChild(container_div);
-        container_div.appendChild(box_1_div);
-        // box_1_div.appendChild(rating_tag);
-        container_div.appendChild(img_tag);
-        container_div.appendChild(title_tag);
-        container_div.appendChild(date_tag);
+      title_tag.addEventListener("click", nextPageTitle)
+      img_tag.addEventListener("click", nextPageImage)
 
-        title_tag.addEventListener("click", nextPageTitle)
-        img_tag.addEventListener("click", nextPageImage)
-  
-        // rating_tag.innerText = results[i].vote_average;
+      // rating_tag.innerText = results[i].vote_average;
+      if(results[i].poster_path != null){
         img_tag.setAttribute("src", `${poster_path}${results[i].poster_path}`);
-        title_tag.innerText = `${results[i].title}`
-        date_tag.innerText = `${results[i].release_date}`
-
-        console.log(`${poster_path}${results[i].poster_path}`)
-        
-        box.appendChild(movie_div);
-
-        localStorage.setItem("results", JSON.stringify(results));
+      }else{
+        img_tag.setAttribute("src", "./assets/img/no-poster-available.jpg");
+        img_tag.style.height = "412.5px";
       }
-    });
-  }
+      title_tag.innerText = `${results[i].title}`
+      date_tag.innerText = `${results[i].release_date}`
 
-  function nextPageImage(event){
-      event.preventDefault();
-      console.log("image working")
-      window.location.href = "secondpage.html"
-      localStorage.setItem("title", event.target.id)
       
-    //   loadNextPage();
+      box.appendChild(movie_div);
 
-    //   function loadNextPage(){
-    //       var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + imageQuery
+      localStorage.setItem("results", JSON.stringify(results));
+    }
+  });
+}
 
+function nextPageImage(event){
+    event.preventDefault();
+    console.log("image working")
+    window.location.href = "secondpage.html"
+    localStorage.setItem("title", event.target.id)
+    
+  //   loadNextPage();
 
-    //       fetch(requestUrlImage)
-    //       .then(function(responseImage){
-    //          return responseImage.json(); 
-    //     })
-    //     .then(function(data){
-    //         console.log(data)
-    //         var dataObject = JSON.parse(localStorage.getItem("results"))
-    //         console.log(dataObject);
-    //         window.location.href = "secondpage.html"
-    //         console.log(dataObject[0].original_title)
-    //         console.log(dataObject[0].poster_path)
-    //         secondImage.src = dataObject[0].poster_path
-    //         secondTitle.textContent = dataObject[0].original_title
-    //     })
-    //   }
-
-  }
+  //   function loadNextPage(){
+  //       var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + imageQuery
 
 
-
-
+  //       fetch(requestUrlImage)
+  //       .then(function(responseImage){
+  //          return responseImage.json(); 
+  //     })
+  //     .then(function(data){
+  //         console.log(data)
+  //         var dataObject = JSON.parse(localStorage.getItem("results"))
+  //         console.log(dataObject);
+  //         window.location.href = "secondpage.html"
+  //         console.log(dataObject[0].original_title)
+  //         console.log(dataObject[0].poster_path)
+  //         secondImage.src = dataObject[0].poster_path
+  //         secondTitle.textContent = dataObject[0].original_title
+  //     })
+  //   }
+}
 
 function nextPageTitle(event){
-  event.preventDefault();
-  console.log("title working")
-  window.location.href = "secondpage.html"
-  localStorage.setItem("title", event.target.innerHTML)
+    event.preventDefault();
+    console.log("title working")
+    window.location.href = "secondpage.html"
+    localStorage.setItem("title", event.target.innerHTML)
 }
+
+function removeElements(){
+  var child = box.lastElementChild;
+    while (child) {
+      box.removeChild(child);
+      child = box.lastElementChild;
+  }
+}
+
+sidebarBtn.forEach(function(sidebarBtn){
+  sidebarBtn.addEventListener("click", function(event){
+      event.preventDefault();
+      removeElements();
+      if (event.target.id === "pop"){
+          display_movies(urlPopular);
+      } else if (event.target.id === "inTheatures"){
+          display_movies(urlInTheaters);
+      } else if (event.target.id === "most_popular_kids"){
+          display_movies(urlKids);
+      } else if (event.target.id === "new_movie"){
+          display_movies(urlNewMovies);
+      } else if (event.target.id === "history"){
+          console.log("history working")
+      }else{
+          display_movies(urlTopRated);
+      }
+  })
+})
 
 function init(){
-  display_movies();
+  display_movies(urlPopular);
 }
-
-
+ 
 init();
+
