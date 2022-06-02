@@ -4,6 +4,9 @@ var rating = document.getElementById("rating")
 const box = document.getElementById("box")
 var currentDate = new Date();
 var currentYear = currentDate.getFullYear();
+
+
+
 var sidebarBtn = document.querySelectorAll(".sidebarBtn");
 var secondImage = parent.document.getElementById("second-page-image")
 var secondTitle = parent.document.getElementById("second-page-title")
@@ -24,11 +27,11 @@ var urlKids = api + most_popular_kids_query + key;
 var urlNewMovies = api + new_movie_query + key;
 var urlTopRated = api + topRated + key; 
 
-searchButton.addEventListener('click', function(event){
-    event.preventDefault();
-    var movie = document.getElementById("search-bar").value
-    getOMDBAPi();
-    console.log(movie)
+// searchButton.addEventListener('click', function(event){
+//     event.preventDefault();
+//     var movie = document.querySelector(".input").value
+    // getOMDBAPi();
+    // console.log(movie)
 
 
     // function getOMDBAPi(){
@@ -53,7 +56,19 @@ searchButton.addEventListener('click', function(event){
     //         console.log(finalAverage)
     //     }) 
     // };
+// })
+
+//set searchMovie function to display movies user searches for
+searchButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var movie = document.querySelector(".input").value
+    displaySearchMovie(movie);
 })
+function displaySearchMovie(movie) {
+    removeElements();
+    let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
+    display_movies(url);
+}
 
 // {
 //     "Title": "Braveheart",
@@ -114,7 +129,7 @@ function display_movies(url){
   .then(response => response.json())
   .then(data => {
     let results = data.results;
-
+    console.log(data)
     for(let i=0; i < results.length; i++){
       let movie_div = document.createElement("div");
       let container_div = document.createElement("div");
@@ -144,7 +159,12 @@ function display_movies(url){
       img_tag.addEventListener("click", nextPageImage)
 
       // rating_tag.innerText = results[i].vote_average;
-      img_tag.setAttribute("src", `${poster_path}${results[i].poster_path}`);
+      if(results[i].poster_path != null){
+        img_tag.setAttribute("src", `${poster_path}${results[i].poster_path}`);
+      }else{
+        img_tag.setAttribute("src", "./assets/img/no-poster-available.jpg");
+        img_tag.style.height = "412.5px";
+      }
       title_tag.innerText = `${results[i].title}`
       date_tag.innerText = `${results[i].release_date}`
 
@@ -226,3 +246,4 @@ function init(){
 }
  
 init();
+
