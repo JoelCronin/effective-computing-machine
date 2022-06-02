@@ -20,10 +20,24 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
+#blue{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+  /* filter: blur(9px); */
+  margin-left: 10px;
+  z-index: 10;
+  user-select: none;
+}
 .box-4{
   margin-left: 0px;
   height: 100%;
+  opacity: 1;
+  z-index: 0;
+
+
 }
 
 header{
@@ -44,7 +58,7 @@ header h1{
 }
 
 .search-cont{
-  max-width: 100px;
+  /* max-width: 100px; */
   margin-right: 40px;
 }
 
@@ -53,7 +67,7 @@ header h1{
   margin-right: 40px;
   padding: 0px;
   border: none;
-  background: rgb(65, 82, 94);
+  background: none;
 }
 
 #search-button i{
@@ -83,17 +97,6 @@ header h1{
   align-content: flex-end;
 }
 
-#blue{
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  opacity: 0.5;
-  /* filter: blur(9px); */
-  margin-left: 10px;
-  z-index:0;
-  user-select: none;
-}
 
 .box-3{
   display: flex;
