@@ -92,7 +92,7 @@ function getIMDBData(){
       console.log(results)
       for(let i=0; i < results.length; i++){
         if(chosen_title == results[i].title){
-          document.getElementById("blue").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
+          document.getElementById("blueigdiud").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
         }
       }
     })
