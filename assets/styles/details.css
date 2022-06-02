@@ -5,11 +5,9 @@
   font-family: 'Cabin', sans-serif;
   letter-spacing: 3px;
   opacity: 1;
-}
-
-*{
   margin: 0px;
 }
+
 
 html{
   height: 100%;
@@ -17,14 +15,11 @@ html{
 }
 
 body{
-  /* background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%); */
   zoom: 75%;
   padding: 5px;
-  /* height: 100%; */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
 
 .ewfuihe{
   background-repeat: no-repeat;
@@ -41,9 +36,6 @@ body{
 
   z-index: -1;
   width: 100%;
-  /* margin: -50px; */
-
-  /* margin-left: 10px; */
   user-select: none;
 }
 
@@ -73,7 +65,6 @@ body{
 }
 
 .search-cont{
-  /* max-width: 100px; */
   margin-right: 40px;
 }
 
@@ -112,15 +103,12 @@ body{
   align-content: flex-end;
 }
 
-
 .box-3{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
-  /* border: 1px solid white; */
 }
-
 
 .box-3 span{
   margin-top: 100px;
@@ -160,9 +148,7 @@ body{
 
 .descript-box{
   width: 600px;
-  /* border: 1px solid white; */
   height: 827px;
-
 }
 
 .description{
@@ -175,23 +161,18 @@ body{
 } 
 
 .details{ 
-
-  /* background-color: rgb(65, 82, 94); */
   height: 500px;
   margin-top: 40px;
   border-radius: 6px;
 }
 
 .scoll-container{
-  /* border: 1px solid white; */
   display: flex;
   justify-content: space-evenly;
 }
 
-
 .scroll{
   width: 80%;
-  /* border: 1px solid white; */
   height: 300px;
   margin-bottom: 60px;
 }

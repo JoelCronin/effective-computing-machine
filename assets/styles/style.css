@@ -94,11 +94,10 @@ header h1{
   align-content: flex-end;
   max-width: 2300px;
   margin: 0 100px;
+  margin-left: 6px;
 }
 
 .movie{
-  /* width: 275px;
-  margin: 25px 25px; */
   flex:1 1 15%;
   margin: 25px;
   user-select: none;
