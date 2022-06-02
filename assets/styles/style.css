@@ -8,7 +8,7 @@
 
 body{
   background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
-  zoom: 72%;
+  zoom: 75%;
 }
 
 .box-3{
@@ -31,7 +31,6 @@ header h1{
   font-weight: 600;
   font-size: 32px;
   user-select: none;
-
 }
 
 .search-cont{
@@ -75,6 +74,8 @@ header h1{
   border-radius: 100%;
   margin-left: 30px;
   box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+  transition: box-shadow 0.5s, background 0.5s;
+
 }
 
 #search-button:hover{
@@ -147,6 +148,7 @@ header h1{
 
 .box-4{
   margin-left: 290px;
+
 }
 
 ::-webkit-scrollbar {

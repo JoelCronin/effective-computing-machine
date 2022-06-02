@@ -13,9 +13,10 @@ var secondTitle = parent.document.getElementById("second-page-title")
 
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
-
 const most_popular_query = "/discover/movie?sort_by=popularity.desc"
-const inTheatures_query = "/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22";
+let lateDate = moment().add(1, "weeks").format("YYYY-MM-DD")
+let earlyDate = moment().subtract(4, "weeks").format("YYYY-MM-DD")
+const inTheatures_query = "/discover/movie?primary_release_date.gte=" + earlyDate + "&primary_release_date.lte=" + lateDate;
 const most_popular_kids_query = "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc";
 const new_movie_query = "/discover/movie?primary_release_year=" + currentYear;
 const poster_path = "https://image.tmdb.org/t/p/w1280";
@@ -64,6 +65,7 @@ searchButton.addEventListener('click', function(event){
     var movie = document.querySelector(".input").value
     displaySearchMovie(movie);
 })
+
 function displaySearchMovie(movie) {
     removeElements();
     let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
@@ -210,7 +212,6 @@ function nextPageImage(event){
   //         secondTitle.textContent = dataObject[0].original_title
   //     })
   //   }
-
 }
 
 function nextPageTitle(event){
