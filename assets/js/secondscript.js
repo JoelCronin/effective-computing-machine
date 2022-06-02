@@ -5,6 +5,7 @@ const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 var movieSecondPage = localStorage.getItem("title");
 var backButton = document.getElementById("back-button")
+var ratingsBox = document.getElementById("rating-box")
 // function loadData (data){
 //     console.log(data)
 //     var dataObject = JSON.parse(localStorage.getItem("results"))
@@ -28,7 +29,7 @@ function getOMDBData(){
       return responseImage.json(); 
   })
   .then(function(data){
-    //   console.log(data)
+      console.log(data)
     //   var dataObject = JSON.parse(localStorage.getItem("results"))
     //   console.log(dataObject);
     //   window.location.href = "secondpage.html"
@@ -42,32 +43,37 @@ function getOMDBData(){
       secondImage.setAttribute("src", data.Poster);
       
       console.log(data.Poster);
-      // console.log(data.Metascore)
-      // let metaValue = data.Ratings[1].Value.substring(0, 2);
-      // console.log(metaValue)
+      console.log(data.Metascore)
+      let metaValue = data.Ratings[1].Value.substring(0, 2);
+      console.log(metaValue)
 
 
 
 
 
 
-    //   console.log(data.Ratings[1].Value)
-    //   console.log(data.imdbRating)
+      console.log(data.Ratings[1].Value)
+      console.log(data.imdbRating)
       
     
     imdbValue = data.imdbRating * 10
     console.log(imdbValue)
     averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
     finalAverage = (averageValue / 3)
+    console.log(finalAverage)
+    ratingsBox.innerHTML = Math.round(finalAverage)
     console.log(averageValue)
     console.log(finalAverage)
 
     if(finalAverage > 80){
       console.log("good")
+      ratingsBox.setAttribute("class", "good")
     } else if (finalAverage < 55){
       console.log("poor")
+      ratingsBox.setAttribute("class", "poor")
     } else if (finalAverage > 55 && finalAverage < 80){
       console.log("medium")
+      ratingsBox.setAttribute("class", "medium")
     } else {
     console.log("average rating not possible")
     } 
