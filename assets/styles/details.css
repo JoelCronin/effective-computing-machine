@@ -125,7 +125,7 @@ header h1{
   border-radius: 6px;
 }
 
-.rating-box{
+#rating-box{
   text-align: center;
   position: relative;
   width: 100px;
@@ -138,12 +138,11 @@ header h1{
   height: 58px;
   padding: 10px;
   border-radius: 100%;
-  background-color: rgb(255, 178, 11);
   user-select: none;
   box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.2);
 }
 
-.rating-box:hover{
+#rating-box:hover{
   cursor: pointer;
   box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
 
@@ -172,6 +171,18 @@ header h1{
   width: 100%;
   background-color: rgb(65, 82, 94);
   border-radius: 6px;
+}
+
+.good{
+  background-color: green;
+}
+
+.poor{
+  background-color: red;
+}
+
+.medium{
+  background-color: orange;
 }
 
 @media screen and (max-width: 1026px) {
