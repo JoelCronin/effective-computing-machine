@@ -7,6 +7,9 @@
     height: 100%;
     padding-left: 10px;
     box-shadow: 3px 0px 13px 1px rgba(0,0,0,0.29);
+    transition: width 0.5s;
+    background: rgb(39, 47, 54);
+
 }
 
 .sidebar-top{
@@ -26,33 +29,37 @@
 
 .fa-solid{
     font-size: 40px;
-    background-color: rgb(24, 43, 73);
+    background: rgb(75, 158, 75);
     margin-top: 10px;
     padding: 20px;
     border-radius: 100%;
-    box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.13);
+    box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.2);
     margin-left: 30px;
     user-select: none;
+    transition: box-shadow 0.5s, background 0.5s;
 }
 
 .fa-solid:hover{
     cursor: pointer;
-    color: rgb(86, 193, 86);
-    box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.27);
+    background: rgb(60, 125, 60);
+    box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
 }
 
 .options{
     margin-top: 105px;
     width: 280px;
+    transition: width 0.5s;
 }
 
 .options section {
     font-size: 19px;
     padding: 20px;
     margin-bottom: 20px;
-    color: lightgray;
+    color: rgb(180, 180, 180);
     user-select: none;
     transition: font-weight 0.5s, border-left-style 0.5s,  border-left-color 0.5s, background-color 0.5s;
+    transition-timing-function: ease;
+
 }
 
 
@@ -73,6 +80,11 @@
     border-left-width: 7px;
 }
 
+.fa-fire-flame-curved:hover, .fa-masks-theater:hover, .fa-landmark:hover, .fa-children:hover, .fa-film:hover, .fa-award:hover, .fa-clock:hover, .fa-arrow-trend-up:hover{
+    background: none;
+    color: rgb(86, 193, 86);
+}
+
 .fa-fire-flame-curved, .fa-masks-theater, .fa-landmark, .fa-children, .fa-film, .fa-award, .fa-clock, .fa-arrow-trend-up{
     color: white;
     font-size: 28px;
@@ -81,6 +93,7 @@
     margin-left: -3px;
     position: relative;
     top: 5px;
+    background: none;
 }
 
 .fa-fire-flame-curved{
@@ -114,4 +127,14 @@
         visibility: visible;
         margin-left: 4px;
     }
+    .sidebar-top span{
+        display: none;
+      }
+    
+      .fa-user-astronaut{
+        position: relative;
+        right: 25px;
+      }
 }
+
+

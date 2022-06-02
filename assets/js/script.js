@@ -65,6 +65,7 @@ searchButton.addEventListener('click', function(event){
     var movie = document.querySelector(".input").value
     displaySearchMovie(movie);
 })
+
 function displaySearchMovie(movie) {
     removeElements();
     let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
@@ -204,7 +205,6 @@ function nextPageImage(event){
   //         secondTitle.textContent = dataObject[0].original_title
   //     })
   //   }
-
 }
 
 function nextPageTitle(event){

@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&display=swap');
+
+*{
+  color: lightgray;
+  font-family: 'Cabin', sans-serif;
+  letter-spacing: 3px;
+  opacity: 1;
+}
+
+
+html{
+  height: 100%;
+}
+
+body{
+  background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
+  zoom: 75%;
+  padding: 5px;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.box-4{
+  margin-left: 0px;
+  height: 100%;
+}
+
+header{
+  margin-top: 15px;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1{
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 32px;
+  user-select: none;
+
+}
+
+.search-cont{
+  max-width: 100px;
+  margin-right: 40px;
+}
+
+#search-button{
+  margin: 0px;
+  margin-right: 40px;
+  padding: 0px;
+  border: none;
+  background: rgb(65, 82, 94);
+}
+
+#search-button i{
+  color: rgb(255, 255, 255);
+  background: rgb(75, 158, 75);
+  padding: 18px;
+  font-size: 30px;
+  border-radius: 100%;
+  margin-left: 30px;
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+  transition: box-shadow 1.5s, background 0.5s;
+}
+
+#search-button:hover{
+    cursor: pointer;
+}
+
+#search-button i:hover{
+  background: rgb(60, 125, 60);
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+}
+
+.box-2{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: flex-end;
+}
+
+#blue{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.5;
+  /* filter: blur(9px); */
+  margin-left: 10px;
+  z-index:0;
+  user-select: none;
+}
+
+.box-3{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.box-3 span{
+  margin-top: 100px;
+  filter: blur(0px);
+}
+
+.movie-selected-poster{
+  width: 564px;
+  height: 827px;
+  user-select: none;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.97);
+  border-radius: 6px;
+}
+
+.rating-box{
+  text-align: center;
+  position: relative;
+  width: 100px;
+  bottom: 120px;
+  left: 510px;
+  color: white;
+  font-size: 37px;
+  text-align: center;
+  width: 63px;
+  height: 58px;
+  padding: 10px;
+  border-radius: 100%;
+  background-color: rgb(255, 178, 11);
+  user-select: none;
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.2);
+}
+
+.rating-box:hover{
+  cursor: pointer;
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+
+}
+
+.descript-box{
+  max-width: 600px;
+}
+
+.description{
+  color: white;
+  padding: 20px;
+  font-size: 24px;
+  background-color: rgb(65, 82, 94);
+  background-color: rgb(65, 82, 94);
+  border-radius: 6px;
+}
+
+.suggested-movies{
+  background-color: darkgray;
+  height: 400px;
+  width: 100%;
+  background-color: rgb(65, 82, 94);
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 1026px) {
+  .box-4{
+    margin-left: 0px;
+  }
+
+  #search-cont{
+    background-color: none;
+  }
+  .search-cont{
+    width: 80%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(37, 45, 51); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(179, 179, 179); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(102, 101, 101); 
+}

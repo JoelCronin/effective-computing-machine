@@ -23,9 +23,9 @@ function getOMDBData(){
     var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + movieSecondPage
 
 
-    fetch(requestUrlImage)
+  fetch(requestUrlImage)
     .then(function(responseImage){
-       return responseImage.json(); 
+      return responseImage.json(); 
   })
   .then(function(data){
     //   console.log(data)
@@ -34,56 +34,78 @@ function getOMDBData(){
     //   window.location.href = "secondpage.html"
     //   console.log(dataObject[0].original_title)
     //   console.log(dataObject[0].poster_path)
-      secondImage.src = data.Poster
-      secondTitle.textContent = data.Title
-      console.log(data);
-      console.log(data.Metascore)
-      let metaValue = data.Ratings[1].Value.substring(0, 2);
-      console.log(metaValue)
+
+
+
+      // secondImage.src = data.Poster
+      secondTitle.innerText = movieSecondPage;
+      secondImage.setAttribute("src", data.Poster);
+      
+      console.log(data.Poster);
+      // console.log(data.Metascore)
+      // let metaValue = data.Ratings[1].Value.substring(0, 2);
+      // console.log(metaValue)
+
+
+
+
+
+
     //   console.log(data.Ratings[1].Value)
     //   console.log(data.imdbRating)
-      imdbValue = data.imdbRating * 10
-      console.log(imdbValue)
-      averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
-      finalAverage = (averageValue / 3)
-      console.log(averageValue)
-      console.log(finalAverage)
+      
+    
+    imdbValue = data.imdbRating * 10
+    console.log(imdbValue)
+    averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
+    finalAverage = (averageValue / 3)
+    console.log(averageValue)
+    console.log(finalAverage)
 
-      if(finalAverage > 80){
-        console.log("good")
+    if(finalAverage > 80){
+      console.log("good")
     } else if (finalAverage < 55){
-        console.log("poor")
+      console.log("poor")
     } else if (finalAverage > 55 && finalAverage < 80){
-        console.log("medium")
+      console.log("medium")
     } else {
-      console.log("average rating not possible")
-  } 
-
-    //   if(finalAverage > 80){
-    //       console.log("good")
-    //   } else if (finalAverage < 55){
-    //       console.log("poor")
-    //   } else if (isNaN(finalAverage)){
-    //       console.log("average rating not possible")
-    //   } else {
-    //     console.log("average")
-    // }   
-    localStorage.setItem("movieObject", JSON.stringify(data))
+    console.log("average rating not possible")
+    } 
   })
-  
 }
 
-getOMDBData();
+function getIMDBData(){
+  let chosen_title = localStorage.getItem("title");
+  const search_api = `https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=${chosen_title}`;
+  const img_path = "https://image.tmdb.org/t/p/w1280";
 
-backButton.addEventListener("click", toHomepage)
+  fetch(search_api)
+    .then((response)=>{return response.json()})
+    .then((data) => {
+      let results = data.results;
+      console.log(results)
+      for(let i=0; i < results.length; i++){
+        if(chosen_title == results[i].title){
+          document.getElementById("blue").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
+        }
+      }
+    })
+}
 
 function toHomepage(event){
   event.preventDefault();
-  window.location.href = "index.html"
+  window.location.href = "../pages/homepage.html";
 }
 
 
 
+function init(){
+  getOMDBData();
+  getIMDBData();
+}
+
+backButton.addEventListener("click", toHomepage);
+init();
 
 
 // var secondPageData = JSON.parse(localStorage.getItem("movieObject"))
