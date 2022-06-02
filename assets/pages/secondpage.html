@@ -5,33 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
-    <link rel="stylesheet" href="../styles/navbar.css">
     <link rel="stylesheet" href="../styles/details.css">
     <link rel="icon" href="../img/browser-icon.png">
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-top">
-            <i class="fa-solid fa-user-astronaut"></i>
-            <span>Hi, Dave</span>
-        </div>
-        
-        <div class="options">
-            <section id="pop"><i class="fa-solid fa-fire-flame-curved"></i>Popular Movies</section>
-            <section><i class="fa-solid fa-masks-theater"></i>In Theatures</section>
-            <section><i class="fa-solid fa-landmark"></i>History</section>
-            <section><i class="fa-solid fa-children"></i>Kids</section>
-            <section><i class="fa-solid fa-film"></i>New Movies</section>
-            <section><i class="fa-solid fa-award"></i>Top Rated</section>
-            <hr>
-            <section id="crack"><i class="fa-solid fa-clock"></i>Watch Later</section>
-            <section><i class="fa-solid fa-arrow-trend-up"></i>Upcoming</section>
-        </div>
-    </div>
-    <!-- Fantastic Beasts: The Secrets of Dumbledore -->
     <div class="box-4">
         <header>
-            <h1>Fantastic Beasts: The Secrets of Dumbledore</h1>
+            <h1 id="second-page-title"></h1>
             <div class="search-cont">
                 <button id="search-button">
                     <i class="fa-solid fa-door-open"></i>
@@ -39,8 +19,16 @@
             </div>
         </header>
 
-        <div class="box-3">
-            <div id="box" class="box-2"></div>
+        <div id="blue"class="box-3">
+            <span>
+                <img id="second-page-image" class="movie-selected-poster" >
+                <div class="rating-box">8.3</div>
+            </span>
+
+            <div class="descript-box">
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <div class="suggested-movies"></div>
+            </div>
         </div>
     </div>
 

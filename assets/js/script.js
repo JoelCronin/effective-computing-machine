@@ -139,6 +139,7 @@ function display_movies(){
         title_tag.innerText = `${results[i].title}`
         date_tag.innerText = `${results[i].release_date}`
 
+        console.log(`${poster_path}${results[i].poster_path}`)
         
         box.appendChild(movie_div);
 
@@ -181,16 +182,11 @@ function display_movies(){
 
 
 
-<<<<<<< HEAD
-function nextPageTitle(){
+function nextPageTitle(event){
+  event.preventDefault();
   console.log("title working")
-=======
-  function nextPageTitle(event){
-    event.preventDefault();
-    console.log("title working")
-    window.location.href = "secondpage.html"
-    localStorage.setItem("title", event.target.innerHTML)
->>>>>>> 1837320b82a40ebdda90b95b7b24afcef0d73d20
+  window.location.href = "secondpage.html"
+  localStorage.setItem("title", event.target.innerHTML)
 }
 
 function init(){
@@ -198,6 +194,4 @@ function init(){
 }
 
 
-
-  
 init();
