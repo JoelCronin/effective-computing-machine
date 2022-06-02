@@ -189,7 +189,7 @@ function nextPageImage(event){
     // imgHistory.push(img);
     // localStorage.setItem("titleHistory", JSON.stringify("titleHistory"));
     // localStorage.setItem("imgHistory", JSON.stringify("imgHistory"));
-    window.location.href = "secondpage.html"
+    window.location.href = "./assets/pages/secondpage.html";
     localStorage.setItem("title", event.target.id)
   //   loadNextPage();
 
@@ -217,7 +217,7 @@ function nextPageImage(event){
 function nextPageTitle(event){
     event.preventDefault();
     console.log("title working")
-    window.location.href = "secondpage.html"
+    window.location.href = "./assets/pages/secondpage.html"
     localStorage.setItem("title", event.target.innerHTML)
 }
 
