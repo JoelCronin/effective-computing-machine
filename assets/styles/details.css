@@ -7,7 +7,6 @@
   opacity: 1;
 }
 
-
 html{
   height: 100%;
 }
@@ -149,12 +148,11 @@ header h1{
 }
 
 .descript-box{
-  max-width: 600px;
-  border: 1px solid white;
+  width: 600px;
+  /* border: 1px solid white; */
   height: 827px;
 
 }
-
 
 .description{
   color: white;
@@ -162,15 +160,18 @@ header h1{
   font-size: 20px;
   background-color: none;
   border-radius: 6px;
-
   box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.50);
 } 
 
-.suggested-movies{ 
-  height: 400px;
-  width: 100%;
-  background-color: rgb(65, 82, 94);
+.details{ 
+
+  /* background-color: rgb(65, 82, 94); */
+  height: 500px;
   border-radius: 6px;
+}
+
+.suggested{
+  width: 80%;
 }
 
 .good{
