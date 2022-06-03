@@ -27,6 +27,8 @@ var urlInTheaters = api + inTheatures_query + key;
 var urlKids = api + most_popular_kids_query + key;
 var urlNewMovies = api + new_movie_query + key;
 var urlTopRated = api + topRated + key; 
+var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + localStorage.getItem("movie")
+
 
 // searchButton.addEventListener('click', function(event){
 //     event.preventDefault();
@@ -63,6 +65,7 @@ var urlTopRated = api + topRated + key;
 searchButton.addEventListener('click', function(event){
     event.preventDefault();
     var movie = document.querySelector(".input").value
+    localStorage.setItem("movie", movie)
     displaySearchMovie(movie);
 })
 
@@ -321,7 +324,11 @@ sidebarBtn.forEach(function(sidebarBtn){
 })
 
 function init(){
+  if (localStorage.getItem("movie")== null){
   display_movies(urlPopular);
+  } else {
+    display_movies(urlLastSearch);
+  }
 }
  
 init();
