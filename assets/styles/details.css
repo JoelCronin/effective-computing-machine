@@ -170,6 +170,10 @@ header h1{
   background-color: orange;
 }
 
+.hidden{
+  display: none;
+}
+
 @media screen and (max-width: 1026px) {
   .box-4{
     margin-left: 0px;

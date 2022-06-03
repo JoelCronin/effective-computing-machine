@@ -76,6 +76,7 @@ function getOMDBData(){
       ratingsBox.setAttribute("class", "medium")
     } else {
     console.log("average rating not possible")
+    ratingsBox.setAttribute("class", "hidden")
     } 
   })
 }
@@ -100,7 +101,7 @@ function getIMDBData(){
 
 function toHomepage(event){
   event.preventDefault();
-  window.location.href = "../../homepage.html";
+  window.location.href = "../../index.html";
 }
 
 
