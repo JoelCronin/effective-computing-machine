@@ -204,16 +204,22 @@ sidebarBtn.forEach(function(sidebarBtn){
       removeElements();
       if (event.target.id === "pop"){
           display_movies(urlPopular);
+          localStorage.removeItem("movie")
       } else if (event.target.id === "inTheatures"){
           display_movies(urlInTheaters);
+          localStorage.removeItem("movie")
       } else if (event.target.id === "most_popular_kids"){
           display_movies(urlKids);
+          localStorage.removeItem("movie")
       } else if (event.target.id === "new_movie"){
           display_movies(urlNewMovies);
+          localStorage.removeItem("movie")
       } else if (event.target.id === "history"){
           displayHistory();
+          localStorage.removeItem("movie")
       }else{
           display_movies(urlTopRated);
+          localStorage.removeItem("movie")
       }
   })
 })
