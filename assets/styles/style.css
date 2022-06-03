@@ -138,11 +138,17 @@ header h1{
   letter-spacing: 2px;
 }
 
+
 .date{
   position: relative;
   bottom: 25px;
   font-size: 13px;
   color: rgb(129, 159, 184);
+}
+
+#locks {
+  color: aqua;
+
 }
 
 .box-4{

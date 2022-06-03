@@ -2,36 +2,41 @@ var OMDBKey = "84b19fcd"
 var searchButton = document.getElementById('search-button')
 var rating = document.getElementById("rating")
 const box = document.getElementById("box")
-var currentDate = new Date();
-var currentYear = currentDate.getFullYear();
+var currentYear = moment().format("YYYY")
+var currentDate = moment().format("YYYY-MM-DD");
+var futureDate = moment().add(6, 'month').format("YYYY-MM-DD");
+let lateDate = moment().add(1, "weeks").format("YYYY-MM-DD")
+let earlyDate = moment().subtract(4, "weeks").format("YYYY-MM-DD")
 var sidebarBtn = document.querySelectorAll(".sidebarBtn");
 var secondImage = parent.document.getElementById("second-page-image")
 var secondTitle = parent.document.getElementById("second-page-title")
 var input = document.querySelector(".input");
 var box2 = document.querySelector(".box-2");
+var searchDisplay = document.getElementById("current-search")
 
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 const most_popular_query = "/discover/movie?sort_by=popularity.desc"
-let lateDate = moment().add(1, "weeks").format("YYYY-MM-DD")
-let earlyDate = moment().subtract(4, "weeks").format("YYYY-MM-DD")
 const inTheatures_query = "/discover/movie?primary_release_date.gte=" + earlyDate + "&primary_release_date.lte=" + lateDate;
 const most_popular_kids_query = "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc";
 const new_movie_query = "/discover/movie?primary_release_year=" + currentYear;
 const poster_path = "https://image.tmdb.org/t/p/w1280";
 const topRated = "/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc";
+const up_coming_query = "/discover/movie?primary_release_date.gte=" + currentDate + "&primary_release_date.lte=" + futureDate;
 
 var urlPopular = api + most_popular_query + key;
 var urlInTheaters = api + inTheatures_query + key;
 var urlKids = api + most_popular_kids_query + key;
 var urlNewMovies = api + new_movie_query + key;
 var urlTopRated = api + topRated + key; 
+var urlUpcomimg = api + up_coming_query + key;
 var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + localStorage.getItem("movie")
 
 //set searchMovie function to display movies user searches for
 searchButton.addEventListener('click', function(event){
-    // event.preventDefault();
+    event.preventDefault();
     var movie = document.querySelector(".input").value
+    searchDisplay.textContent = "Searching: " + document.querySelector(".input").value
     if(movie == ""){      
       input.style.border = "1px solid red";
       input.style.boxShadow = "0 0 5px red";
@@ -48,9 +53,10 @@ searchButton.addEventListener('click', function(event){
 })
 
 function displaySearchMovie(movie) {
-    removeElements();
-    let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
-    display_movies(url);
+  removeElements();
+  let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
+  display_movies(url);
+  localStorage.setItem("historyUrl", JSON.stringify(url));
 }
 
 input.addEventListener("keypress", function(event) {
@@ -105,6 +111,7 @@ function display_movies(url){
 
       img_tag.addEventListener("click", nextPageImage)
     }
+    localStorage.setItem("historyUrl", JSON.stringify(url));
   });
 }
 
@@ -153,6 +160,8 @@ function displayHistory() {
     }else{
       box2.style.gap = "0px";
     }
+
+    // localStorage.setItem("historyUrl", JSON.stringify(url));
   }
 }
 
@@ -204,36 +213,42 @@ sidebarBtn.forEach(function(sidebarBtn){
       removeElements();
       if (event.target.id === "pop"){
           display_movies(urlPopular);
-          localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Popular" 
       } else if (event.target.id === "inTheatures"){
           display_movies(urlInTheaters);
-          localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: In Theatres" 
       } else if (event.target.id === "most_popular_kids"){
           display_movies(urlKids);
-          localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Kids" 
       } else if (event.target.id === "new_movie"){
           display_movies(urlNewMovies);
-          localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: New Movies" 
       } else if (event.target.id === "history"){
           displayHistory();
-          localStorage.removeItem("movie")
+          localStorage.setItem("historyUrl", JSON.stringify("displayHistory();"));
+          searchDisplay.textContent = "Searching: History" 
+      } else if (event.target.id === "upComing"){
+          display_movies(urlUpcomimg);
+          searchDisplay.textContent = "Searching: Upcoming" 
       }else{
           display_movies(urlTopRated);
-          localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Top rated" 
       }
   })
 })
 
 function init(){
-  if (localStorage.getItem("movie")== null){
+  if (localStorage.getItem("historyUrl")== null){
   display_movies(urlPopular);
+  } else if(localStorage.getItem("historyUrl").includes("https:")){
+  display_movies(JSON.parse(localStorage.getItem("historyUrl")));
   } else {
-    display_movies(urlLastSearch);
+  displayHistory();
   }
+  searchDisplay.textContent = "" 
 }
  
 init();
-
 
 
 
