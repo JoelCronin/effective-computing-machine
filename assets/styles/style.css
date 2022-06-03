@@ -14,6 +14,7 @@ body{
 .box-3{
   display: flex;
   justify-content: center;
+  height: 100%;
 }
 
 header{
