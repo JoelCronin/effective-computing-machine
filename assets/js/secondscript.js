@@ -75,19 +75,26 @@ function getOMDBData(){
         averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
         finalAverage = (averageValue / 3)
         console.log(finalAverage)
-        ratingsText.innerText = Math.round(finalAverage)
+        // ratingsText.innerText = Math.round(finalAverage)
         console.log(averageValue)
         console.log(finalAverage)
     
         if(finalAverage > 80){
           console.log("good")
           ratingsBubble.style.color = "green"
+          ratingsText.style.fontSize = "xx-large"
+          ratingsText.innerText = Math.round(finalAverage) + "👍"
         } else if (finalAverage < 55){
           console.log("poor")
+          ratingsText.style.fontSize = "xx-large"
+          ratingsText.innerText = Math.round(finalAverage) + "👎"
           ratingsBubble.style.color = 'red'
         } else if (finalAverage > 55 && finalAverage < 80){
           console.log("medium")
-          ratingsBubble.style.color = "orange"
+          ratingsText.innerText = Math.round(finalAverage) + "🤔"
+          ratingsText.style.fontSize = "xx-large"
+          ratingsText.style.color = "black"
+          ratingsBubble.style.color = "yellow"
         } else {
         console.log("average rating not possible")
         ratingsBubble.style.display = "none"
