@@ -45,12 +45,13 @@ body{
   user-select: none;
 }
 .mesh{
-  color: orange;
+  /* color: red; */
   background-color: none;
   font-size: 120px;
   position: relative;
   bottom: 130px;
   left: 525px;
+  display: none;
 
 }
 
@@ -120,6 +121,10 @@ body{
   border-radius: 0px 0pc 8px 8px;
 }
 
+h3{
+  color: white;
+}
+
 .date h3{
   /* background-color: white; */
   width: 150px;
@@ -178,6 +183,7 @@ body{
 
 #second-page-title{
   padding: 10px 30px;
+  color: white;
 }
 
 .search-cont{
@@ -258,6 +264,7 @@ body{
  */
 
  #rating-text{
+   color: white;
    font-size: 50px;
    position: relative;
    bottom: 226px;
@@ -375,8 +382,8 @@ body{
 span[data-descr]:hover::after {
   content: attr(data-descr);
   position: absolute;
-  left: -5px;
-  bottom: 0px;
+  left: 500px;
+  bottom: -40px;
   min-width: 200px;
   border: 1px #aaaaaa solid;
   background-color: #13293d;

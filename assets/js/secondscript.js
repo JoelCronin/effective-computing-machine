@@ -5,8 +5,10 @@ const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 var movieSecondPage = localStorage.getItem("title");
 var backButton = document.getElementById("back-button")
-var ratingsBox = document.getElementById("rating-c");
+var ratingsText = document.getElementById("rating-text");
+var ratingsBubble = document.getElementById("locks")
 var descript = [];
+// var icon = document.getElementByid("mesh fa-solid fa-comment")
 
 var favorateMovie = document.querySelector(".favorateMovie");
 
@@ -35,25 +37,40 @@ function getOMDBData(){
       document.getElementById("run").innerText = data.Runtime;
       document.getElementById("type").innerText = data.Type;       
       secondImage.setAttribute("src", data.Poster);
+      console.log(data.Poster);
+      console.log(data.Metascore)
 
-      let metaValue = data.Ratings[1].Value.substring(0, 2);
- 
-      imdbValue = data.imdbRating * 10
-
-      averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
-      finalAverage = (averageValue / 3)
-
-      ratingsBox.innerText = Math.round(finalAverage)
-
-      if(finalAverage > 80){
-        document.getElementById("locks").setAttribute("class", "good")
-      } else if (finalAverage < 55){
-        document.getElementById("locks").setAttribute("class", "poor")
-      } else if (finalAverage > 55 && finalAverage < 80){
-        document.getElementById("locks").setAttribute("class", "medium")
+      if(data.Ratings.length != 3){
+        ratingsBubble.style.display = "none"
+        console.log("ok")
       } else {
-      ratingsBox.setAttribute("class", "hidden")
-    } 
+        console.log(data.imdbRating)
+      
+        let metaValue = data.Ratings[1].Value.substring(0, 2);
+        imdbValue = data.imdbRating * 10
+        console.log(imdbValue)
+        averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
+        finalAverage = (averageValue / 3)
+        console.log(finalAverage)
+        ratingsText.innerText = Math.round(finalAverage)
+        console.log(averageValue)
+        console.log(finalAverage)
+    
+        if(finalAverage > 80){
+          console.log("good")
+          ratingsBubble.style.color = "green"
+        } else if (finalAverage < 55){
+          console.log("poor")
+          ratingsBubble.style.color = 'red'
+        } else if (finalAverage > 55 && finalAverage < 80){
+          console.log("medium")
+          ratingsBubble.style.color = "orange"
+        } else {
+        console.log("average rating not possible")
+        ratingsBubble.style.display = "none"
+        ratingsText.innerText = ""
+        } 
+      }
   })
 }
 

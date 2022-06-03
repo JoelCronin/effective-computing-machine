@@ -12,6 +12,7 @@ var secondImage = parent.document.getElementById("second-page-image")
 var secondTitle = parent.document.getElementById("second-page-title")
 var input = document.querySelector(".input");
 var box2 = document.querySelector(".box-2");
+var searchDisplay = document.getElementById("current-search")
 
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -33,8 +34,9 @@ var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a
 
 //set searchMovie function to display movies user searches for
 searchButton.addEventListener('click', function(event){
-    // event.preventDefault();
+    event.preventDefault();
     var movie = document.querySelector(".input").value
+    searchDisplay.textContent = "Searching: " + document.querySelector(".input").value
     if(movie == ""){      
       input.style.border = "1px solid red";
       input.style.boxShadow = "0 0 5px red";
@@ -242,6 +244,7 @@ function init(){
   } else {
   displayStorageMovies(JSON.parse(localStorage.getItem("favorateMovesImg")), JSON.parse(localStorage.getItem("favorateMovesTitle")));
   }
+  searchDisplay.textContent = "" 
 }
  
 init();
