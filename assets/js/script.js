@@ -112,8 +112,7 @@ function displayHistory() {
   removeElements();
   let historyImg = JSON.parse(localStorage.getItem("historyImg"));
   let historyTitle = JSON.parse(localStorage.getItem("historyTitle"));
-  console.log(historyImg)
-  console.log(historyTitle)
+
   if(historyImg != null){    
     for(let i=0; i < historyImg.length; i++){
       let movie_div = document.createElement("div");
@@ -151,10 +150,8 @@ function displayHistory() {
     
     if(historyImg.length <= 5){
       box2.style.gap = "80px";
-      console.log("less than 5")
     }else{
       box2.style.gap = "0px";
-      console.log("more than 5")
     }
   }
 }
