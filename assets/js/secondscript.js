@@ -5,7 +5,9 @@ const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 var movieSecondPage = localStorage.getItem("title");
 var backButton = document.getElementById("back-button")
-var ratingsBox = document.getElementById("rating-box")
+var ratingsBox = document.getElementById("rating-c");
+var descript = [];
+
 // function loadData (data){
 //     console.log(data)
 //     var dataObject = JSON.parse(localStorage.getItem("results"))
@@ -40,6 +42,21 @@ function getOMDBData(){
 
       // secondImage.src = data.Poster
       secondTitle.innerText = movieSecondPage;
+      document.getElementById("release-date").innerText = data.Year;
+      document.getElementById("ratt").innerText = data.Rated;
+      document.getElementById("mis").innerText = data.Plot;
+      document.getElementById("gene").innerText = data.Genre;
+      document.getElementById("lang").innerText = data.Language;
+      document.getElementById("count").innerText = data.Country;
+      document.getElementById("act").innerText = data.Actors;
+      document.getElementById("dir").innerText = data.Director;
+      document.getElementById("write").innerText = data.Writer;
+      document.getElementById("award").innerText = data.Awards;
+      document.getElementById("money").innerText = data.BoxOffice;
+      document.getElementById("run").innerText = data.Runtime;
+      document.getElementById("type").innerText = data.Type;
+      
+      
       secondImage.setAttribute("src", data.Poster);
       
       console.log(data.Poster);
@@ -61,19 +78,19 @@ function getOMDBData(){
     averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
     finalAverage = (averageValue / 3)
     console.log(finalAverage)
-    ratingsBox.innerHTML = Math.round(finalAverage)
+    ratingsBox.innerText = Math.round(finalAverage)
     console.log(averageValue)
     console.log(finalAverage)
 
     if(finalAverage > 80){
       console.log("good")
-      ratingsBox.setAttribute("class", "good")
+      document.getElementById("locks").setAttribute("class", "good")
     } else if (finalAverage < 55){
       console.log("poor")
-      ratingsBox.setAttribute("class", "poor")
+      document.getElementById("locks").setAttribute("class", "poor")
     } else if (finalAverage > 55 && finalAverage < 80){
       console.log("medium")
-      ratingsBox.setAttribute("class", "medium")
+      document.getElementById("locks").setAttribute("class", "medium")
     } else {
     console.log("average rating not possible")
     ratingsBox.setAttribute("class", "hidden")
@@ -94,9 +111,11 @@ function getIMDBData(){
       for(let i=0; i < results.length; i++){
         if(chosen_title == results[i].title){
           document.getElementById("blueigdiud").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
+          document.getElementById("dis").innerText = results[i].overview;
+      
         }
       }
-    })
+    });
 }
 
 function toHomepage(event){
