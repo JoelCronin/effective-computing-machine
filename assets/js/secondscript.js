@@ -8,39 +8,18 @@ var backButton = document.getElementById("back-button")
 var ratingsBox = document.getElementById("rating-c");
 var descript = [];
 
-// function loadData (data){
-//     console.log(data)
-//     var dataObject = JSON.parse(localStorage.getItem("results"))
-//     console.log(dataObject);
-//     window.location.href = "secondpage.html"
-//     console.log(dataObject[0].original_title)
-//     console.log(dataObject[0].poster_path)
-//     secondImage.src = dataObject[0].poster_path
-//     secondTitle.textContent = dataObject[0].original_title
-// }
+var favorateMovie = document.querySelector(".favorateMovie");
 
-// loadData();
 
 function getOMDBData(){
-    var movieSecondPage = localStorage.getItem("title");
-    var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + movieSecondPage
-
+  var movieSecondPage = localStorage.getItem("title");
+  var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + movieSecondPage
 
   fetch(requestUrlImage)
     .then(function(responseImage){
-      return responseImage.json(); 
-  })
-  .then(function(data){
-      console.log(data)
-    //   var dataObject = JSON.parse(localStorage.getItem("results"))
-    //   console.log(dataObject);
-    //   window.location.href = "secondpage.html"
-    //   console.log(dataObject[0].original_title)
-    //   console.log(dataObject[0].poster_path)
-
-
-
-      // secondImage.src = data.Poster
+        return responseImage.json(); 
+    })
+    .then(function(data){
       secondTitle.innerText = movieSecondPage;
       document.getElementById("release-date").innerText = data.Year;
       document.getElementById("ratt").innerText = data.Rated;
@@ -54,46 +33,26 @@ function getOMDBData(){
       document.getElementById("award").innerText = data.Awards;
       document.getElementById("money").innerText = data.BoxOffice;
       document.getElementById("run").innerText = data.Runtime;
-      document.getElementById("type").innerText = data.Type;
-      
-      
+      document.getElementById("type").innerText = data.Type;       
       secondImage.setAttribute("src", data.Poster);
-      
-      console.log(data.Poster);
-      console.log(data.Metascore)
+
       let metaValue = data.Ratings[1].Value.substring(0, 2);
-      console.log(metaValue)
+ 
+      imdbValue = data.imdbRating * 10
 
+      averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
+      finalAverage = (averageValue / 3)
 
+      ratingsBox.innerText = Math.round(finalAverage)
 
-
-
-
-      console.log(data.Ratings[1].Value)
-      console.log(data.imdbRating)
-      
-    
-    imdbValue = data.imdbRating * 10
-    console.log(imdbValue)
-    averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
-    finalAverage = (averageValue / 3)
-    console.log(finalAverage)
-    ratingsBox.innerText = Math.round(finalAverage)
-    console.log(averageValue)
-    console.log(finalAverage)
-
-    if(finalAverage > 80){
-      console.log("good")
-      document.getElementById("locks").setAttribute("class", "good")
-    } else if (finalAverage < 55){
-      console.log("poor")
-      document.getElementById("locks").setAttribute("class", "poor")
-    } else if (finalAverage > 55 && finalAverage < 80){
-      console.log("medium")
-      document.getElementById("locks").setAttribute("class", "medium")
-    } else {
-    console.log("average rating not possible")
-    ratingsBox.setAttribute("class", "hidden")
+      if(finalAverage > 80){
+        document.getElementById("locks").setAttribute("class", "good")
+      } else if (finalAverage < 55){
+        document.getElementById("locks").setAttribute("class", "poor")
+      } else if (finalAverage > 55 && finalAverage < 80){
+        document.getElementById("locks").setAttribute("class", "medium")
+      } else {
+      ratingsBox.setAttribute("class", "hidden")
     } 
   })
 }
@@ -102,7 +61,6 @@ function getIMDBData(){
   let chosen_title = localStorage.getItem("title");
   const search_api = `https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=${chosen_title}`;
   const img_path = "https://image.tmdb.org/t/p/w1280";
-
   fetch(search_api)
     .then((response)=>{return response.json()})
     .then((data) => {
@@ -111,8 +69,7 @@ function getIMDBData(){
       for(let i=0; i < results.length; i++){
         if(chosen_title == results[i].title){
           document.getElementById("blueigdiud").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
-          document.getElementById("dis").innerText = results[i].overview;
-      
+          document.getElementById("dis").innerText = results[i].overview;      
         }
       }
     });
@@ -130,6 +87,34 @@ function init(){
 
 backButton.addEventListener("click", toHomepage);
 init();
+
+// faverate movie event listener add favorate movie information to local storage
+// favorateMovie.addEventListener("click", function(event){
+//   event.preventDefault();
+  
+//   if(localStorage.getItem("favorateMovesImg") != null){
+//     if(!localStorage.getItem("favorateMovesImg").includes(localStorage.getItem("img"))){
+//       let resultsImg = JSON.parse(localStorage.getItem("favorateMovesImg"));
+//       let resultsTitle = JSON.parse(localStorage.getItem("favorateMovesTitle"));
+
+//       resultsImg.push(localStorage.getItem("img"));
+//       resultsTitle.push(localStorage.getItem("title"));
+//       localStorage.setItem("favorateMovesImg", JSON.stringify(resultsImg));
+//       localStorage.setItem("favorateMovesTitle", JSON.stringify(resultsTitle));
+//     }
+//   }else{
+//     let resultsImg = [];
+//     let resultsTitle = [];
+//     resultsImg.push(localStorage.getItem("img"));
+//     resultsTitle.push(localStorage.getItem("title"));
+//     localStorage.setItem("favorateMovesImg", JSON.stringify(resultsImg));
+//     localStorage.setItem("favorateMovesTitle", JSON.stringify(resultsTitle));
+//   }  
+// })
+
+
+
+
 
 
 // var secondPageData = JSON.parse(localStorage.getItem("movieObject"))
@@ -202,3 +187,27 @@ init();
 // Thriller        53
 // War             10752
 // Western         37
+
+
+// function loadData (data){
+//     console.log(data)
+//     var dataObject = JSON.parse(localStorage.getItem("results"))
+//     console.log(dataObject);
+//     window.location.href = "secondpage.html"
+//     console.log(dataObject[0].original_title)
+//     console.log(dataObject[0].poster_path)
+//     secondImage.src = dataObject[0].poster_path
+//     secondTitle.textContent = dataObject[0].original_title
+// }
+
+// loadData();
+
+    //   var dataObject = JSON.parse(localStorage.getItem("results"))
+    //   console.log(dataObject);
+    //   window.location.href = "secondpage.html"
+    //   console.log(dataObject[0].original_title)
+    //   console.log(dataObject[0].poster_path)
+
+
+
+      // secondImage.src = data.Poster
