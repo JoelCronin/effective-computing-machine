@@ -1,5 +1,43 @@
-{"page":1,"results":[{"adult":false,"backdrop_path":"/7ucaMpXAmlIM24qZZ8uI9hCY0hm.jpg","genre_ids":[14,12,28],"id":338953,"original_language":"en","original_title":"Fantastic Beasts: The Secrets of Dumbledore","overview":"Professor Albus Dumbledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize control of the wizarding world. Unable to stop him alone, he entrusts magizoologist Newt Scamander to lead an intrepid team of wizards and witches. They soon encounter an array of old and new beasts as they clash with Grindelwald's growing legion of followers.","popularity":12139.383,"poster_path":"/jrgifaYeUtTnaH7NF5Drkgjg2MB.jpg","release_date":"2022-04-06","title":"Fantastic Beasts: The Secrets of Dumbledore","video":false,"vote_average":6.8,"vote_count":1260},{"adult":false,"backdrop_path":"/gG9fTyDL03fiKnOpf2tr01sncnt.jpg","genre_ids":act
+{
+    // "Title": "Monsters, Inc.",
+    // "Year": "2001",
+    // "Rated": "G",
+    // "Released": "02 Nov 2001",
+    // "Runtime": "92 min",
+    // "Genre": "Animation, Adventure, Comedy",
+    // "Director": "Pete Docter, David Silverman, Lee Unkrich",
+    // "Writer": "Pete Docter, Jill Culton, Jeff Pidgeon",
+    // "Actors": "Billy Crystal, John Goodman, Mary Gibbs",
+    // "Plot": "In order to power the city, monsters have to scare children so that they scream. However, the children are toxic to the monsters, and after a child gets through, two monsters realize things may not be what they think.",
+    // "Language": "English",
+    // "Country": "United States",
+    // "Awards": "Won 1 Oscar. 15 wins & 38 nominations total",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMTY1NTI0ODUyOF5BMl5BanBnXkFtZTgwNTEyNjQ0MDE@._V1_SX300.jpg",
+    "Ratings": [
+        {
+            "Source": "Internet Movie Database",
+            "Value": "8.1/10"
+        },
+        {
+            "Source": "Rotten Tomatoes",
+            "Value": "96%"
+        },
+        {
+            "Source": "Metacritic",
+            "Value": "79/100"
+        }
+    ],
+    "Metascore": "79",
+    "imdbRating": "8.1",
+    "imdbVotes": "883,454",
+    "imdbID": "tt0198781",
+    "Type": "movie",
+    "DVD": "17 Sep 2002",
+    // "BoxOffice": "$290,642,256",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+}
 
-    /discover/movie?with_genres=18&sort_by=popularity.desc
 
-    https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1
+

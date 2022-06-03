@@ -1,0 +1,66 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+
+
+.slider-cont{
+    margin-top: 50px;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: center;
+    
+}
+
+.media-scroller {
+    --_spacer: var(--size-3);
+    display: grid;
+    gap: var(--_spacer);
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
+    /* margin-top: 100px; */
+    /* border: 5px solid brown; */
+  
+    padding: 0 var(--_spacer) var(--_spacer);
+  
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    max-width: 2600px;
+}
+
+.media-scroller--with-groups {
+    grid-auto-columns: 90%;
+}
+
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: var(--_spacer, 1rem);
+}
+  
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
+
+.media-element {
+    /* display: grid; */
+    grid-template-rows: min-content;
+    /* gap: var(--_spacer); */
+    padding: var(--_spacer);
+    /* background: var(--surface-2); */
+    /* border-radius: var(--radius-2); */
+    /* box-shadow: var(--shadow-2); */
+    /* border: 1px solid white; */
+}
+  
+/* .media-element > img {
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+} */
+
+
+.media-element > img {
+    height: 435px;
+    width: 290px;
+    box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.4);
+    border: none;
+    user-select: none;
+}

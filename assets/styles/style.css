@@ -18,7 +18,7 @@ body{
 }
 
 header{
-  margin-bottom: 10px;
+  margin-bottom: 40px;
   margin-top: 15px;
   width: 100%;
   height: 150px;
@@ -95,13 +95,12 @@ header h1{
   align-content: flex-end;
   max-width: 2300px;
   margin: 0 100px;
+  margin-left: 6px;
 }
 
 .movie{
-  /* width: 275px;
-  margin: 25px 25px; */
   flex:1 1 15%;
-  margin: 25px;
+  margin: 10px;
   user-select: none;
   margin-bottom: 70px;
 }
@@ -111,12 +110,11 @@ header h1{
 }
 
 .container{
-  width: 200px;
   height: 450px;
 }
 
 .poster{
-  width: 275px;
+  width: 290px;
   box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.37);
   transition: box-shadow 0.5s;
 }
@@ -167,8 +165,8 @@ header h1{
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(102, 101, 101); 
 }
-
-@media screen and (max-width: 1026px) {
+/* 26s */
+@media screen and (max-width: 1051px) {
   header h1{
     display: none;
   }
@@ -183,6 +181,10 @@ header h1{
 
   .input{
     width: 100%;
+  }
+
+  .box-2{
+    margin-left: 100px;
   }
 
   .box-4{

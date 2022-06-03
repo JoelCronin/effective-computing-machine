@@ -33,7 +33,7 @@ var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a
 
 //set searchMovie function to display movies user searches for
 searchButton.addEventListener('click', function(event){
-    event.preventDefault();
+    // event.preventDefault();
     var movie = document.querySelector(".input").value
     if(movie == ""){      
       input.style.border = "1px solid red";

@@ -1,50 +1,186 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&display=swap');
 
 *{
-  color: lightgray;
+  color: white;
   font-family: 'Cabin', sans-serif;
   letter-spacing: 3px;
   opacity: 1;
+  margin: 0px;
 }
 
 
 html{
-  height: 100%;
+  /* border: 1px solid white; */
+  background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
+  /* height: calc(100% + 10vh); */
+
 }
 
 body{
-  background: linear-gradient(47deg, rgb(39, 47, 54) 59%, rgb(65, 82, 94) 82%);
   zoom: 75%;
   padding: 5px;
-  height: 100%;
-  background-repeat: no-repeat;
+  background-repeat:no-repeat;
   background-attachment: fixed;
+  /* border: 1px solid white; */
+
 }
 
-.box-4{
+.ewfuihe{
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: blur(160px);
+  height: calc(100% + 30vh);
+
+  z-index: -1;
+  /* width: 100%; */
+  /* height: 100%; */
+  user-select: none;
+}
+.mesh{
+  color: orange;
+  background-color: none;
+  font-size: 120px;
+  position: relative;
+  bottom: 130px;
+  left: 525px;
+
+}
+
+.boxxyy-4{
   margin-left: 0px;
   height: 100%;
+  opacity: 1;
+  z-index: 0;
+  /* border: 1px solid white; */
+
+
 }
 
-header{
+.hehe{
   margin-top: 15px;
   width: 100%;
   height: 150px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
-header h1{
+.hehe h1{
   margin-left: 40px;
   font-weight: 600;
   font-size: 32px;
   user-select: none;
+}
+
+.date{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+
+.date-rate{
+  /* border: 1px solid white; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.date, .rate{
+  /* padding: 20px; */
+  border-radius: 8px;
+  /* margin-top: 10px; */
+  /* border: 1px solid white; */
+}
+
+.line {
+  background-color: turquoise;
+  /* border: 1px solid turquoise; */
+  padding: 8px 2px;
+  width: 130px;
+  border-radius: 8px 8px 0px 0px ;
+}
+
+.rate-line{
+  background-color: green;
+}
+
+.space{
+  max-width: 130px;
+  height: 70px;
+  background-color: white;
+  border-radius: 0px 0pc 8px 8px;
+}
+
+.date h3{
+  /* background-color: white; */
+  width: 150px;
+  position: relative;
+  right: 5px;
+  bottom: 10px;
+  font-weight: 24px;
+}
+
+
+.rate h3{
+  position: relative;
+  left: 30px;
+}
+
+
+#release-date, #ratt, #run{
+  color: rgb(49, 49, 49);
+  font-size: 35px;
+  letter-spacing: 0px;
+}
+#release-date, #ratt{
+  position: relative;
+  top: 10px;
+  left: 20px;
+}
+
+
+#run{
+  position: relative;
+  top: 10px;
+  left: 10px;
 
 }
 
+.run-line{
+  background-color: orange;
+}
+
+.gene{
+  /* border: 1px solid rgb(0, 0, 0); */
+  margin-left: 50px;
+}
+
+.bored{
+  /* border: 1px solid white; */
+  display: flex;
+}
+.icon{
+  font-size: 50px;
+  position: relative;
+  bottom: 10px;
+  color: rgb(75, 158, 75);;
+  /* background: white; */
+}
+
+#second-page-title{
+  padding: 10px 30px;
+}
+
 .search-cont{
-  max-width: 100px;
   margin-right: 40px;
 }
 
@@ -53,7 +189,7 @@ header h1{
   margin-right: 40px;
   padding: 0px;
   border: none;
-  background: rgb(65, 82, 94);
+  background: none;
 }
 
 #search-button i{
@@ -83,24 +219,24 @@ header h1{
   align-content: flex-end;
 }
 
-#blue{
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  opacity: 0.5;
-  /* filter: blur(9px); */
-  margin-left: 10px;
-  z-index:0;
-  user-select: none;
+.box-5{
+  /* border: 1px solid white; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
 
 .box-3{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
+  /* border: 1px solid white; */
+  max-width: 2960px;
+
 }
+
 .box-3 span{
   margin-top: 100px;
   filter: blur(0px);
@@ -108,66 +244,99 @@ header h1{
 
 .movie-selected-poster{
   width: 564px;
-  height: 827px;
+  height: 847px;
   user-select: none;
   box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.97);
   border-radius: 6px;
+  margin-left: 35px;
 }
 
-#rating-box{
-  text-align: center;
-  position: relative;
-  width: 100px;
-  bottom: 120px;
-  left: 510px;
-  color: white;
-  font-size: 37px;
-  text-align: center;
-  width: 63px;
-  height: 58px;
-  padding: 10px;
-  border-radius: 100%;
-  user-select: none;
-  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.2);
-}
 
-#rating-box:hover{
+/* #rating-box:hover{
   cursor: pointer;
   box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+ */
+
+ #rating-text{
+   font-size: 50px;
+   position: relative;
+   bottom: 226px;
+   left: 555px;
+ }
+
+.descript-box{
+  width: 600px;
+  height: 827px;
+  margin: 0px 35px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content:space-between;
+
+  /* border: 1px solid white; */
+}
+
+#overview{
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0);
 
 }
 
-.descript-box{
-  max-width: 600px;
+.text{
+  width: 100%;
 }
 
 .description{
   color: white;
-  padding: 20px;
-  font-size: 24px;
-  background-color: rgb(65, 82, 94);
-  background-color: rgb(65, 82, 94);
+  padding: 25px;
+  font-size: 20px;
+  background-color: none;
+  border-radius: 6px;
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.4);
+  user-select: none;
+  transition: box-shadow 0.3s;
+}
+
+
+.description:hover{
+  box-shadow: 0px 0px 40px -2px rgba(0,0,0,1);
+  cursor: pointer;
+}
+
+.details{ 
+  /* height: 500px; */
+  /* margin-top: 40px; */
   border-radius: 6px;
 }
 
-.suggested-movies{
-  background-color: darkgray;
-  height: 400px;
+
+.scoll-container{
+  margin-top: 30px;
   width: 100%;
-  background-color: rgb(65, 82, 94);
-  border-radius: 6px;
+  display: flex;
+  justify-content: space-evenly;
+  /* border: 1px solid white; */
+
 }
+
+.scroll{
+  width: 90%;
+  height: 300px;
+  margin-bottom: 60px;
+  max-width: 2600px;
+
+}
+
 
 .good{
-  background-color: green;
+  color: green;
 }
 
 .poor{
-  background-color: red;
+  color: red;
 }
 
 .medium{
-  background-color: orange;
+  color: orange;
 }
 
 .hidden{
@@ -175,16 +344,16 @@ header h1{
 }
 
 @media screen and (max-width: 1026px) {
-  .box-4{
+  .boxxyy-4{
     margin-left: 0px;
   }
 
   #search-cont{
     background-color: none;
   }
-  .search-cont{
+  /* .search-cont{
     width: 80%;
-  }
+  } */
 }
 
 ::-webkit-scrollbar {
