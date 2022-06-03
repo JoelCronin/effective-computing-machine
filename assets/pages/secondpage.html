@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
     <link rel="stylesheet" href="../styles/details.css">
+    <link rel="stylesheet" href="../styles/side_swipe.css">
     <link rel="icon" href="../img/browser-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
@@ -23,21 +24,199 @@
             </div>
         </header>
 
-        <div class="box-3">
-            <span>
-                <img id="second-page-image" class="movie-selected-poster" >
-                <span data-descr="Our rating uses an average of IMDB, MetaCritic and Rotten Tomatoes ratings to give an even more accurate rating to you"><div id="rating-box"></div></span>
-            </span>
+        <div class="box-5">
+            <div class="box-3">
+                <span>
+                    <img id="second-page-image" class="movie-selected-poster" >
+                    <div>
+                        <!-- <span data-descr="Our rating uses an average of IMDB, MetaCritic and Rotten Tomatoes ratings to give an even more accurate rating to you"><div id="rating-box"></div></span> -->
+                        <span data-descr="Our rating uses an average of IMDB, MetaCritic and Rotten Tomatoes ratings to give an even more accurate rating to you"><i id="locks" class="mesh fa-solid fa-comment"></i></span>
+                        <h1 id="rating-text">86</h1>
+                    </div>
+                
+                </span>
+    
+                <div class="descript-box">
+                    <p id="dis" class="description text"></p>
+                    
+                    <div class="description date-rate text details">
+                        <p id="mis"></p>
+                    </div>
+                    
+        
+                    <div class="description date-rate text details">
+                        <div class="date">
+                            <h3>Release Date</h3>
+                            <div class="line"></div>
+                            <div class="space">
+                                <h1 id="release-date">2020</h1>
+                            </div>
+                        </div>
+                        <div class="date rate">
+                            <h3>Rated</h3>
+                            <div class="line rate-line"></div>
+                            <div class="space">
+                                <h1 id="ratt">G</h1>
+                            </div>
+                        </div>
+                        <div class="date runt rate">
+                            <h3>Runtime</h3>
+                            <div class="line run-line rate-line"></div>
+                            <div class="space">
+                                <h1 class="move" id="run">92 min</h1>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="descript-box">
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatu</p>
-                <div class="description details"></div>
+                    <div class="description text details">
+                        <h3>Box Office</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-sack-dollar"></i>
+                            <p id="money" class="gene"></p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="descript-box">
+                    <div class="description text details">
+                        <h3>Genre</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-masks-theater"></i>
+                            <p id="gene" class="gene"></p>
+                        </div>
+                    </div>
+
+                    <div class="description text details">
+                        <h3>Actors</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-people-group"></i>
+                            <p id="act" class="gene"></p>
+                        </div>
+                    </div>
+
+                    <div class="description text details">
+                        <h3>Language</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-language"></i>
+                            <p id="lang" class="gene"></p>
+                        </div>
+                    </div>
+
+                    <div class="description text details">
+                        <h3>Country</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-earth-africa"></i>
+                            <p id="count" class="gene"></p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="descript-box">
+                    <div class="description text details">
+                        <h3>Director/s</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-clapperboard"></i>
+                            <p id="dir" class="gene"></p>
+                        </div>
+                    </div>
+
+                    <div class="description text details">
+                        <h3>Writers</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-keyboard"></i>
+                            <p id="write" class="gene"></p>
+                        </div>
+                    </div>
+
+                    <div class="description text details">
+                        <h3>Awards</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-trophy"></i>
+                            <p id="award" class="gene"></p>
+                        </div>
+                    </div>
+
+                    <div class="description text details">
+                        <h3>Type</h3>
+                        <br>
+                        <div class="bored">
+                            <i class="fa-solid icon fa-bullseye"></i>
+                            <p id="type" class="gene"></p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- <div class=" scoll-container">
+                <div class="description scroll">
+                    <h1>More Like This</h1>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div class="slider-cont">
+            <div class="media-scroller snaps-inline">
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
+                <div class="media-element">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_SX300.jpg"/>
+                </div>
             </div>
         </div>
 
-        <div class="scoll-container">
-            <div class="description scroll"></div>
-        </div>
     </div>
 
 </body>
