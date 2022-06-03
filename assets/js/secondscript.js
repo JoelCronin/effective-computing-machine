@@ -5,8 +5,8 @@ const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 var movieSecondPage = localStorage.getItem("title");
 var backButton = document.getElementById("back-button")
-var ratingsBox = document.getElementById("rating-c");
-var descript = [];
+var ratingsBox = document.getElementById("rating-textd");
+let current_genre_ids = [];
 
 // function loadData (data){
 //     console.log(data)
@@ -31,7 +31,7 @@ function getOMDBData(){
       return responseImage.json(); 
   })
   .then(function(data){
-      console.log(data)
+      // console.log(data)
     //   var dataObject = JSON.parse(localStorage.getItem("results"))
     //   console.log(dataObject);
     //   window.location.href = "secondpage.html"
@@ -55,44 +55,45 @@ function getOMDBData(){
       document.getElementById("money").innerText = data.BoxOffice;
       document.getElementById("run").innerText = data.Runtime;
       document.getElementById("type").innerText = data.Type;
-      
-      
       secondImage.setAttribute("src", data.Poster);
+
       
-      console.log(data.Poster);
-      console.log(data.Metascore)
+      // console.log(data.Poster);
+      // console.log(data.Metascore)
       let metaValue = data.Ratings[1].Value.substring(0, 2);
-      console.log(metaValue)
+      // console.log(metaValue)
 
 
 
 
 
 
-      console.log(data.Ratings[1].Value)
-      console.log(data.imdbRating)
+      // console.log(data.Ratings[1].Value)
+      // console.log(data.imdbRating)
       
     
     imdbValue = data.imdbRating * 10
-    console.log(imdbValue)
+    // console.log(imdbValue)
     averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
     finalAverage = (averageValue / 3)
-    console.log(finalAverage)
-    ratingsBox.innerText = Math.round(finalAverage)
-    console.log(averageValue)
-    console.log(finalAverage)
+    // console.log(finalAverage)
+
+    // ratingsBox.innerText = Math.round(finalAverage)
+
+    // console.log(averageValue)
+    // console.log(finalAverage)
 
     if(finalAverage > 80){
-      console.log("good")
+      // console.log("good")
       document.getElementById("locks").setAttribute("class", "good")
     } else if (finalAverage < 55){
-      console.log("poor")
+      // console.log("poor")
       document.getElementById("locks").setAttribute("class", "poor")
     } else if (finalAverage > 55 && finalAverage < 80){
-      console.log("medium")
+      // console.log("medium")
       document.getElementById("locks").setAttribute("class", "medium")
     } else {
-    console.log("average rating not possible")
+    // console.log("average rating not possible")
     ratingsBox.setAttribute("class", "hidden")
     } 
   })
@@ -107,16 +108,63 @@ function getIMDBData(){
     .then((response)=>{return response.json()})
     .then((data) => {
       let results = data.results;
-      console.log(results)
+
+
+      // results.genre_ids.forEach(id => {
+      //   console.log(id);
+      // });
+
+
+      // current_genre_ids.push(results.genre_ids);
+
+      // console.log(current_genre_ids)
+      
       for(let i=0; i < results.length; i++){
         if(chosen_title == results[i].title){
           document.getElementById("blueigdiud").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
           document.getElementById("dis").innerText = results[i].overview;
-      
+          results[i].genre_ids.forEach(id => {
+            current_genre_ids.push(id);
+          })
         }
       }
+
+      byGenre();
     });
 }
+
+
+function byGenre(){
+  const pages = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  var page = pages[Math.floor(Math.random() * pages.length)];
+  const img_path = "https://image.tmdb.org/t/p/w1280";
+  const api = "https://api.themoviedb.org/3";
+  const key = `&api_key=04c35731a5ee918f014970082a0088b1&page=${page}`;
+  const most_popular_query = "/discover/movie?sort_by=popularity.desc"
+
+
+  fetch(api + most_popular_query + key)
+    .then((response)=>{return response.json()})
+    .then((data)=>{
+      let results = data.results;
+      document.getElementById("scroll-1").setAttribute("src", img_path + results[0].poster_path)
+      document.getElementById("scroll-2").setAttribute("src", img_path + results[1].poster_path)
+      document.getElementById("scroll-3").setAttribute("src", img_path + results[2].poster_path)
+      document.getElementById("scroll-4").setAttribute("src", img_path + results[3].poster_path)
+      document.getElementById("scroll-5").setAttribute("src", img_path + results[4].poster_path)
+      document.getElementById("scroll-6").setAttribute("src", img_path + results[5].poster_path)
+      document.getElementById("scroll-7").setAttribute("src", img_path + results[6].poster_path)
+      document.getElementById("scroll-8").setAttribute("src", img_path + results[7].poster_path)
+      document.getElementById("scroll-9").setAttribute("src", img_path + results[8].poster_path)
+      document.getElementById("scroll-10").setAttribute("src", img_path + results[9].poster_path)
+      document.getElementById("scroll-11").setAttribute("src", img_path + results[10].poster_path);
+      document.getElementById("scroll-12").setAttribute("src", img_path + results[11].poster_path);
+      document.getElementById("scroll-13").setAttribute("src", img_path + results[12].poster_path);
+      document.getElementById("scroll-14").setAttribute("src", img_path + results[13].poster_path);
+      document.getElementById("scroll-15").setAttribute("src", img_path + results[14].poster_path);
+  })
+
+} 
 
 function toHomepage(event){
   event.preventDefault();
