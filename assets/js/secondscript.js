@@ -41,18 +41,25 @@ function getOMDBData(){
       // secondImage.src = data.Poster
       secondTitle.innerText = movieSecondPage;
       secondImage.setAttribute("src", data.Poster);
-      
+      let metaValue;
       console.log(data.Poster);
       console.log(data.Metascore)
-      let metaValue = data.Ratings[1].Value.substring(0, 2);
-      console.log(metaValue)
+
+      if(data.Ratings.length == 0){
+        ratingsBox.setAttribute("class", "hidden")
+      } else {
+        let metaValue = data.Ratings[1].Value.substring(0, 2);
+        console.log(metaValue)
+      }
+      
+      
 
 
 
 
 
 
-      console.log(data.Ratings[1].Value)
+      // console.log(data.Ratings[1].Value)
       console.log(data.imdbRating)
       
     
