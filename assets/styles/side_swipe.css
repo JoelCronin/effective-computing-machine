@@ -4,11 +4,10 @@
 
 .slider-cont{
     margin-top: 50px;
-    /* border: 1px solid white; */
     display: flex;
     justify-content: center;
-    
 }
+
 
 .media-scroller {
     --_spacer: var(--size-3);
@@ -16,15 +15,13 @@
     gap: var(--_spacer);
     grid-auto-flow: column;
     grid-auto-columns: 21%;
-    /* margin-top: 100px; */
-    /* border: 5px solid brown; */
-  
+    margin: 70px 0px 0px 0px;
     padding: 0 var(--_spacer) var(--_spacer);
-  
     overflow-x: auto;
     overscroll-behavior-inline: contain;
     max-width: 2600px;
 }
+
 
 .media-scroller--with-groups {
     grid-auto-columns: 90%;
@@ -48,8 +45,11 @@
     /* border-radius: var(--radius-2); */
     /* box-shadow: var(--shadow-2); */
     /* border: 1px solid white; */
+    min-width: 564px;
+    max-width: 564px;
 }
-  
+
+
 /* .media-element > img {
     inline-size: 100%;
     aspect-ratio: 16 / 9;
@@ -59,8 +59,19 @@
 
 .media-element > img {
     height: 435px;
-    width: 290px;
     box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.4);
     border: none;
     user-select: none;
+    transition: box-shadow 0.3s;
+    margin-bottom: 50px;
+    /* border: 1px solid white; */
+    width: 294.77px;
+    border-radius: 8px;
+}
+
+
+.media-element > img:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 40px -2px rgba(0,0,0,0.9);
+
 }

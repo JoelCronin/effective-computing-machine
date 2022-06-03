@@ -37,7 +37,7 @@ body{
   right: 0;
   bottom: 0;
   filter: blur(160px);
-  height: calc(100% + 30vh);
+  height: calc(100% + 100vh);
 
   z-index: -1;
   /* width: 100%; */
@@ -333,6 +333,17 @@ h3{
 
 }
 
+.titlle{
+  /* border: 1px solid lightgray; */
+
+  position: relative;
+  top: 90px;
+  left: 80px;
+  font-weight: 600;
+  font-size: 29px;
+}
+
+
 
 .good{
   color: green;
@@ -368,15 +379,20 @@ h3{
 }
 
 ::-webkit-scrollbar-track {
-  background: rgb(37, 45, 51); 
+  background: none; 
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(179, 179, 179); 
+  background: rgb(75, 158, 75);
+  border-radius: 8px;
+
+  
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(102, 101, 101); 
+  background: rgb(60, 125, 60);
+  cursor: pointer;
 }
 
 span[data-descr]:hover::after {
