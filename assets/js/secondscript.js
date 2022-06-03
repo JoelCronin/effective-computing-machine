@@ -103,24 +103,11 @@ function getIMDBData(){
     .then((response)=>{return response.json()})
     .then((data) => {
       let results = data.results;
-
-
-      // results.genre_ids.forEach(id => {
-      //   console.log(id);
-      // });
-
-
-      // current_genre_ids.push(results.genre_ids);
-
-      // console.log(current_genre_ids)
       
       for(let i=0; i < results.length; i++){
         if(chosen_title == results[i].title){
           document.getElementById("blueigdiud").style.backgroundImage = `url("${img_path + results[i].backdrop_path}")`;
           document.getElementById("dis").innerText = results[i].overview;
-          results[i].genre_ids.forEach(id => {
-            current_genre_ids.push(id);
-          })
         }
       }
 
@@ -142,6 +129,7 @@ function byGenre(){
     .then((response)=>{return response.json()})
     .then((data)=>{
       let results = data.results;
+      console.log(results)
       document.getElementById("scroll-1").setAttribute("src", img_path + results[0].poster_path)
       document.getElementById("scroll-2").setAttribute("src", img_path + results[1].poster_path)
       document.getElementById("scroll-3").setAttribute("src", img_path + results[2].poster_path)
@@ -174,18 +162,6 @@ function init(){
 backButton.addEventListener("click", toHomepage);
 init();
 
-
-// var secondPageData = JSON.parse(localStorage.getItem("movieObject"))
-// var movieGenre = secondPageData.
-// function getTMDBData(){
-//     var requestUrlImage = api + "/discover/movie?with_genres=" +  + "&sort_by=popularity.desc"
-
-
-//     fetch(requestUrlImage)
-//     .then(function(responseImage){
-//        return responseImage.json(); 
-//   })
-//   .then(function(data){
 
         
 
