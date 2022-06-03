@@ -194,6 +194,7 @@ function nextPageImage(event){
     // localStorage.setItem("imgHistory", JSON.stringify("imgHistory"));
     window.location.href = "./assets/pages/secondpage.html";
     localStorage.setItem("title", event.target.id)
+    localStorage.setItem("movie", event.target.id)
   //   loadNextPage();
 
   //   function loadNextPage(){
