@@ -103,8 +103,6 @@ function toHomepage(event){
   window.location.href = "../../homepage.html";
 }
 
-
-
 function init(){
   getOMDBData();
   getIMDBData();

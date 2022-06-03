@@ -133,7 +133,9 @@ function display_movies(url){
   fetch(url)
   .then(response => response.json())
   .then(data => {
+    
     let results = data.results;
+    
     // console.log(data)
     for(let i=0; i < results.length; i++){
       let movie_div = document.createElement("div");
@@ -160,7 +162,7 @@ function display_movies(url){
       container_div.appendChild(title_tag);
       container_div.appendChild(date_tag);
 
-      title_tag.addEventListener("click", nextPageTitle)
+      // title_tag.addEventListener("click", nextPageTitle)
       img_tag.addEventListener("click", nextPageImage)
 
       // rating_tag.innerText = results[i].vote_average;
@@ -181,14 +183,82 @@ function display_movies(url){
   });
 }
 
+function displayHistory() {
+  removeElements();
+  let historyImg = JSON.parse(localStorage.getItem("historyImg"));
+  let historyTitle = JSON.parse(localStorage.getItem("historyTitle"));
+  if(historyImg != null){    
+    for(let i=0; i < historyImg.length; i++){
+      let movie_div = document.createElement("div");
+      let container_div = document.createElement("div");
+      let box_1_div = document.createElement("div");
+      let img_tag = document.createElement("img");
+      let title_tag = document.createElement("h3");
+      let date_tag = document.createElement("p");
+    
+      movie_div.setAttribute("class", "movie");
+      container_div.setAttribute("class", "container");
+      box_1_div.setAttribute("class", "box-1");
+      img_tag.setAttribute("id", historyTitle[i]);
+      img_tag.setAttribute("class", "poster");
+      title_tag.setAttribute("class", "title");
+      date_tag.setAttribute("class", "date");
+    
+      movie_div.appendChild(container_div);
+      container_div.appendChild(box_1_div);
+      container_div.appendChild(img_tag);
+      container_div.appendChild(title_tag);
+      container_div.appendChild(date_tag);
+
+      img_tag.addEventListener("click", nextPageImage)
+
+      if(historyImg[i] != null){
+        img_tag.setAttribute("src", `${poster_path}${historyImg[i]}`);
+      }else{
+        img_tag.setAttribute("src", "./assets/img/no-poster-available.jpg");
+        img_tag.style.height = "412.5px";
+      }
+      title_tag.innerText = `${historyTitle[i]}`
+
+
+      box.appendChild(movie_div);
+    }
+  }
+}
+
 function nextPageImage(event){
     event.preventDefault();
-    console.log("image working")
-    // var title = event.target.id;
-    // var img = event.target.src;
+    if(localStorage.getItem("historyImg") != null){
+      let resultsImg = JSON.parse(localStorage.getItem("historyImg"));
+      let resultsTitle = JSON.parse(localStorage.getItem("historyTitle"));
+      var check = 0;
+      for(let i=0; i < resultsImg.length; i++){
+        if(event.target.src == resultsImg[i]){
+          check++;
+          console.log(check);
+        }
+      }
+      if(check == 0){
+        resultsImg.push(event.target.src);
+        resultsTitle.push(event.target.id);
+        localStorage.setItem("historyImg", JSON.stringify(resultsImg));
+        localStorage.setItem("historyTitle", JSON.stringify(resultsTitle));
+      }
+      // resultsImg.push(event.target.src);         
+      // localStorage.setItem("historyImg", JSON.stringify(resultsImg));
+      // resultsTitle.push(event.target.id);
+      // localStorage.setItem("historyTitle", JSON.stringify(resultsTitle));
+    }else{
+      let resultsImg = [];
+      let resultsTitle = [];
+      resultsImg.push(event.target.src);
+      resultsTitle.push(event.target.id);
+      localStorage.setItem("historyImg", JSON.stringify(resultsImg));
+      localStorage.setItem("historyTitle", JSON.stringify(resultsTitle));
+    }      
     // var titleHistory = JSON.parse(localStorage.getItem("titleHistory")) || [];
     // var imgHistory  = JSON.parse(localStorage.getItem("imgHistory")) || [];
-    // titleHistory .push(title);
+    // titleHistory.push(title);
     // imgHistory.push(img);
     // localStorage.setItem("titleHistory", JSON.stringify("titleHistory"));
     // localStorage.setItem("imgHistory", JSON.stringify("imgHistory"));
@@ -217,18 +287,19 @@ function nextPageImage(event){
   //   }
 }
 
-function nextPageTitle(event){
-    event.preventDefault();
-    console.log("title working")
-    window.location.href = "./assets/pages/secondpage.html"
-    localStorage.setItem("title", event.target.innerHTML)
-}
+// function nextPageTitle(event){
+//     event.preventDefault();
+//     console.log("title working")
+//     window.location.href = "./assets/pages/secondpage.html"
+//     localStorage.setItem("title", event.target.innerHTML)
+// }
 
 function removeElements(){
   var child = box.lastElementChild;
     while (child) {
       box.removeChild(child);
       child = box.lastElementChild;
+      console.log("good");
   }
 }
 
@@ -245,7 +316,7 @@ sidebarBtn.forEach(function(sidebarBtn){
       } else if (event.target.id === "new_movie"){
           display_movies(urlNewMovies);
       } else if (event.target.id === "history"){
-          console.log("history working")
+          displayHistory();
       }else{
           display_movies(urlTopRated);
       }
