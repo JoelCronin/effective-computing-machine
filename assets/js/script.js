@@ -51,9 +51,10 @@ searchButton.addEventListener('click', function(event){
 })
 
 function displaySearchMovie(movie) {
-    removeElements();
-    let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
-    display_movies(url);
+  removeElements();
+  let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
+  display_movies(url);
+  localStorage.setItem("historyUrl", JSON.stringify(url));
 }
 
 input.addEventListener("keypress", function(event) {
@@ -108,6 +109,7 @@ function display_movies(url){
 
       img_tag.addEventListener("click", nextPageImage)
     }
+    localStorage.setItem("historyUrl", JSON.stringify(url));
   });
 }
 
@@ -156,6 +158,8 @@ function displayHistory() {
     }else{
       box2.style.gap = "0px";
     }
+
+    // localStorage.setItem("historyUrl", JSON.stringify(url));
   }
 }
 
@@ -207,34 +211,37 @@ sidebarBtn.forEach(function(sidebarBtn){
       removeElements();
       if (event.target.id === "pop"){
           display_movies(urlPopular);
-          localStorage.removeItem("movie")
+          // localStorage.removeItem("movie")
       } else if (event.target.id === "inTheatures"){
           display_movies(urlInTheaters);
-          localStorage.removeItem("movie")
+          // localStorage.removeItem("movie")
       } else if (event.target.id === "most_popular_kids"){
           display_movies(urlKids);
-          localStorage.removeItem("movie")
+          // localStorage.removeItem("movie")
       } else if (event.target.id === "new_movie"){
           display_movies(urlNewMovies);
-          localStorage.removeItem("movie")
+          // localStorage.removeItem("movie")
       } else if (event.target.id === "history"){
           displayHistory();
-          localStorage.removeItem("movie")
+          localStorage.setItem("historyUrl", JSON.stringify("displayHistory();"));
+          // localStorage.removeItem("movie")
       } else if (event.target.id === "upComing"){
           display_movies(urlUpcomimg);
-          localStorage.removeItem("movie")
+          // localStorage.removeItem("movie")
       }else{
           display_movies(urlTopRated);
-          localStorage.removeItem("movie")
+          // localStorage.removeItem("movie")
       }
   })
 })
 
 function init(){
-  if (localStorage.getItem("movie")== null){
+  if (localStorage.getItem("historyUrl")== null){
   display_movies(urlPopular);
+  } else if(localStorage.getItem("historyUrl").includes("https:")){
+  display_movies(JSON.parse(localStorage.getItem("historyUrl")));
   } else {
-    display_movies(urlLastSearch);
+  displayHistory();
   }
 }
  
