@@ -63,7 +63,7 @@ function getOMDBData(){
       console.log(data.Poster);
       console.log(data.Metascore)
 
-      if(data.Ratings.length == 0){
+      if(data.Ratings.length != 3){
         ratingsBubble.style.display = "none"
         console.log("ok")
       } else {
