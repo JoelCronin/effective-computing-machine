@@ -12,6 +12,7 @@ var secondImage = parent.document.getElementById("second-page-image")
 var secondTitle = parent.document.getElementById("second-page-title")
 var input = document.querySelector(".input");
 var box2 = document.querySelector(".box-2");
+var searchDisplay = document.getElementById("current-search")
 
 const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -35,6 +36,7 @@ var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a
 searchButton.addEventListener('click', function(event){
     event.preventDefault();
     var movie = document.querySelector(".input").value
+    searchDisplay.textContent = "Searching: " + document.querySelector(".input").value
     if(movie == ""){      
       input.style.border = "1px solid red";
       input.style.boxShadow = "0 0 5px red";
@@ -211,26 +213,26 @@ sidebarBtn.forEach(function(sidebarBtn){
       removeElements();
       if (event.target.id === "pop"){
           display_movies(urlPopular);
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Popular" 
       } else if (event.target.id === "inTheatures"){
           display_movies(urlInTheaters);
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: In Theatres" 
       } else if (event.target.id === "most_popular_kids"){
           display_movies(urlKids);
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Kids" 
       } else if (event.target.id === "new_movie"){
           display_movies(urlNewMovies);
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: New Movies" 
       } else if (event.target.id === "history"){
           displayHistory();
           localStorage.setItem("historyUrl", JSON.stringify("displayHistory();"));
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: History" 
       } else if (event.target.id === "upComing"){
           display_movies(urlUpcomimg);
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Upcoming" 
       }else{
           display_movies(urlTopRated);
-          // localStorage.removeItem("movie")
+          searchDisplay.textContent = "Searching: Top rated" 
       }
   })
 })
@@ -243,6 +245,7 @@ function init(){
   } else {
   displayHistory();
   }
+  searchDisplay.textContent = "" 
 }
  
 init();
