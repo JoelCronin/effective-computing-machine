@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
-    <link rel="stylesheet" href="./assets/styles/navbar.css">
-    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/homepage/navbar.css">
+    <link rel="stylesheet" href="./assets/styles/homepage/style.css">
+    <link rel="stylesheet" href="./assets/styles/loading-screens/loading-page-1.css">
     <link rel="icon" href="./assets/img/browser-icon.png">
 </head>
 <body>
     
-    <div class="sidebar">
+    <div id="bar" class="sidebar">
         <div class="sidebar-top">
             <i class="fa-solid fa-user-astronaut"></i>
             <span>Hi, Dave</span>
@@ -30,8 +31,7 @@
         </div>
     </div>
 
-
-    <div class="box-4">
+    <div id="top-box" class="box-4">
         <header>
             <h1 id="current-search">Popular Movies</h1>
             <div class="search-cont">
@@ -46,6 +46,11 @@
             <div id="box" class="box-2"></div>
         </div>
     </div>
+
+    <div id="load" class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="./assets/js/script.js"></script>
