@@ -224,8 +224,8 @@ sidebarBtn.forEach(function(sidebarBtn){
       } else if (event.target.id === "upComing"){
           display_movies(urlUpcomimg);
       } else if (event.target.id === "crack"){
-          let historyImg = JSON.parse(localStorage.getItem("favorateMovesImg"));
-          let historyTitle = JSON.parse(localStorage.getItem("favorateMovesTitle"));
+          let historyImg = JSON.parse(localStorage.getItem("favoriteMovesImg"));
+          let historyTitle = JSON.parse(localStorage.getItem("favoriteMovesTitle"));
           displayStorageMovies(historyImg, historyTitle);
           localStorage.setItem("historyUrl", "favorite");          
       } else {
@@ -242,7 +242,7 @@ function init(){
   } else if (localStorage.getItem("historyUrl") == "history"){
   displayStorageMovies(JSON.parse(localStorage.getItem("historyImg")), JSON.parse(localStorage.getItem("historyTitle")));
   } else {
-  displayStorageMovies(JSON.parse(localStorage.getItem("favorateMovesImg")), JSON.parse(localStorage.getItem("favorateMovesTitle")));
+  displayStorageMovies(JSON.parse(localStorage.getItem("favoriteMovesImg")), JSON.parse(localStorage.getItem("favoriteMovesTitle")));
   }
   searchDisplay.textContent = "" 
 }

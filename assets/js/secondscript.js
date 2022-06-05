@@ -150,8 +150,8 @@ function init(){
 backButton.addEventListener("click", toHomepage);
 init();
 
-// faverate movie event listener add favorate movie information to local storage
-// favorateMovie.addEventListener("click", function(event){
+// favorite movie event listener add favorate movie information to local storage
+// favoriteMovie.addEventListener("click", function(event){
 //   event.preventDefault();
   
 //   if(localStorage.getItem("favorateMovesImg") != null){
