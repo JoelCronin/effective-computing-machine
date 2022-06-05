@@ -210,26 +210,34 @@ sidebarBtn.forEach(function(sidebarBtn){
       removeElements();
       if (event.target.id === "pop"){
           display_movies(urlPopular);
+          searchDisplay.textContent = "Searching: Popular" 
       } else if (event.target.id === "inTheatures"){
           display_movies(urlInTheaters);
+          searchDisplay.textContent = "Searching: In Theatres" 
       } else if (event.target.id === "most_popular_kids"){
           display_movies(urlKids);
+          searchDisplay.textContent = "Searching: Kids" 
       } else if (event.target.id === "new_movie"){
-          display_movies(urlNewMovies);          
+          display_movies(urlNewMovies);
+          searchDisplay.textContent = "Searching: New Movies" 
       } else if (event.target.id === "history"){
           let historyImg = JSON.parse(localStorage.getItem("historyImg"));
           let historyTitle = JSON.parse(localStorage.getItem("historyTitle"));
           displayStorageMovies(historyImg, historyTitle);
           localStorage.setItem("historyUrl", "history");
+          searchDisplay.textContent = "Searching: History" 
       } else if (event.target.id === "upComing"){
           display_movies(urlUpcomimg);
+          searchDisplay.textContent = "Searching: Upcoming" 
       } else if (event.target.id === "crack"){
           let historyImg = JSON.parse(localStorage.getItem("favoriteMovesImg"));
           let historyTitle = JSON.parse(localStorage.getItem("favoriteMovesTitle"));
           displayStorageMovies(historyImg, historyTitle);
-          localStorage.setItem("historyUrl", "favorite");          
+          localStorage.setItem("historyUrl", "favorite");
+          searchDisplay.textContent = "Searching: Favorite Movies"           
       } else {
           display_movies(urlTopRated);
+          searchDisplay.textContent = "Searching: Top rated" 
       }
   })
 })
