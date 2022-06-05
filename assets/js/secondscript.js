@@ -71,7 +71,7 @@ function getOMDBData(){
         ratingsText.innerText = ""
         } 
       }
-  })
+    })
 }
 
 function getIMDBData(){
