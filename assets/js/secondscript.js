@@ -150,30 +150,6 @@ function init(){
 backButton.addEventListener("click", toHomepage);
 init();
 
-// favorite movie event listener add favorate movie information to local storage
-// favoriteMovie.addEventListener("click", function(event){
-//   event.preventDefault();
-  
-//   if(localStorage.getItem("favorateMovesImg") != null){
-//     if(!localStorage.getItem("favorateMovesImg").includes(localStorage.getItem("img"))){
-//       let resultsImg = JSON.parse(localStorage.getItem("favorateMovesImg"));
-//       let resultsTitle = JSON.parse(localStorage.getItem("favorateMovesTitle"));
-
-//       resultsImg.push(localStorage.getItem("img"));
-//       resultsTitle.push(localStorage.getItem("title"));
-//       localStorage.setItem("favorateMovesImg", JSON.stringify(resultsImg));
-//       localStorage.setItem("favorateMovesTitle", JSON.stringify(resultsTitle));
-//     }
-//   }else{
-//     let resultsImg = [];
-//     let resultsTitle = [];
-//     resultsImg.push(localStorage.getItem("img"));
-//     resultsTitle.push(localStorage.getItem("title"));
-//     localStorage.setItem("favorateMovesImg", JSON.stringify(resultsImg));
-//     localStorage.setItem("favorateMovesTitle", JSON.stringify(resultsTitle));
-//   }  
-// })
-
 
 
 

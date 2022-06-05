@@ -215,7 +215,7 @@ sidebarBtn.forEach(function(sidebarBtn){
       } else if (event.target.id === "most_popular_kids"){
           display_movies(urlKids);
       } else if (event.target.id === "new_movie"){
-          display_movies(urlNewMovies);
+          display_movies(urlNewMovies);          
       } else if (event.target.id === "history"){
           let historyImg = JSON.parse(localStorage.getItem("historyImg"));
           let historyTitle = JSON.parse(localStorage.getItem("historyTitle"));
