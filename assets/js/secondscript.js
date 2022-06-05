@@ -64,7 +64,6 @@ function getOMDBData(){
           ratingsText.innerText = Math.round(finalAverage) + "🤔"
           ratingsText.style.color = "black"
 
-
         } else {
         ratingsBubble.style.display = "none"
         ratingsText.innerText = ""
