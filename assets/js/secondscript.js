@@ -46,20 +46,23 @@ function getOMDBData(){
         imdbValue = data.imdbRating * 10
         averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
         finalAverage = (averageValue / 3)
-        ratingsText.innerText = Math.round(finalAverage)
+        // ratingsText.innerText = Math.round(finalAverage)
     
         if(finalAverage > 80){
           ratingsBubble.style.color = "green"
           document.getElementById("second-page-image").setAttribute("class", "movie-selected-poster good");
-
+          ratingsText.innerText = Math.round(finalAverage) + "👍"
 
         } else if (finalAverage < 55){
           ratingsBubble.style.color = 'red'
           document.getElementById("second-page-image").setAttribute("class", "movie-selected-poster poor");
+          ratingsText.innerText = Math.round(finalAverage) + "👎"
 
         } else if (finalAverage > 55 && finalAverage < 80){
-          ratingsBubble.style.color = "orange"
+          ratingsBubble.style.color = "yellow"
           document.getElementById("second-page-image").setAttribute("class", "movie-selected-poster medium");
+          ratingsText.innerText = Math.round(finalAverage) + "🤔"
+          ratingsText.style.color = "black"
 
 
         } else {

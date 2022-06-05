@@ -32,7 +32,7 @@ var urlTopRated = api + topRated + key;
 var urlUpcomimg = api + up_coming_query + key;
 var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + localStorage.getItem("movie")
 
-//set searchMovie function to display movies user searches for
+//Event listener for the search button which takes in user input 
 searchButton.addEventListener('click', function(event){
     event.preventDefault();
     var movie = document.querySelector(".input").value
