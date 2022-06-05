@@ -230,9 +230,12 @@ sidebarBtn.forEach(function(sidebarBtn){
           display_movies(urlUpcomimg);
           searchDisplay.textContent = "Searching: Upcoming" 
       } else if (event.target.id === "crack"){
-          let historyImg = JSON.parse(localStorage.getItem("favoriteMovesImg"));
-          let historyTitle = JSON.parse(localStorage.getItem("favoriteMovesTitle"));
-          displayStorageMovies(historyImg, historyTitle);
+          let favoriteImg = JSON.parse(localStorage.getItem("favoriteMovesImg"));
+          let favoriteTitle = JSON.parse(localStorage.getItem("favoriteMovesTitle"));
+          console.log(favoriteImg);
+          console.log(favoriteTitle);
+          console.log("clicked crack");
+          displayStorageMovies(favoriteImg, favoriteTitle);
           localStorage.setItem("historyUrl", "favorite");
           searchDisplay.textContent = "Searching: Favorite Movies"           
       } else {
