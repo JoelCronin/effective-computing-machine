@@ -9,6 +9,7 @@ const ratingsText = document.getElementById("rating-text");
 const ratingsBubble = document.getElementById("locks");
 const favoriteMovie = document.getElementById("plus-button");
 
+// Gets data from OMDB and then renders it to the page
 function getOMDBData(){
     var movieSecondPage = localStorage.getItem("title");
     var requestUrlImage = "https://www.omdbapi.com/?apikey=84b19fcd&t=" + movieSecondPage
@@ -38,16 +39,16 @@ function getOMDBData(){
         console.log('no poster');
       }
 
+      // Check to see if API call has three ratings. If it doesnt then doesnt show rating
       if(data.Ratings.length != 3){
         ratingsBubble.style.display = "none"
-
+      // If it does have 3 ratings then converts them all to out of 100 and then averages them to get new rating
       } else {
         let metaValue = data.Ratings[1].Value.substring(0, 2);
         imdbValue = data.imdbRating * 10
         averageValue = parseFloat(imdbValue) + parseFloat(metaValue) + parseFloat(data.Metascore)
         finalAverage = (averageValue / 3)
-        // ratingsText.innerText = Math.round(finalAverage)
-    
+      // Changes colour of ratings bubble to relfect it being good, bad or average
         if(finalAverage > 80){
           ratingsBubble.style.color = "green"
           document.getElementById("second-page-image").setAttribute("class", "movie-selected-poster good");
@@ -72,6 +73,7 @@ function getOMDBData(){
     })
 }
 
+// Performs second API call to get trailer and comments from TMDB
 function getIMDBData(){
   let chosen_title = localStorage.getItem("title");
   const search_api = `https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=${chosen_title}`;
@@ -97,6 +99,7 @@ function getIMDBData(){
     });
 }
 
+// Shows random films from same genre at bottom of the page to explore
 function byGenre(){
   const pages = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   const page = pages[Math.floor(Math.random() * pages.length)];
@@ -127,7 +130,7 @@ function byGenre(){
       document.getElementById("scroll-15").setAttribute("src", img_path + results[14].poster_path);
   })
 } 
-
+// Renders trailer to screen
 function getTrailer(id){
   const video_api = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1`;
   const video_path = "https://www.youtube.com/embed/";
@@ -149,6 +152,7 @@ function getTrailer(id){
     })
 }
 
+// Renders comments to screen
 function getComments(id){
   const api = `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=04c35731a5ee918f014970082a0088b1&page=1`;
 
@@ -179,11 +183,13 @@ function getComments(id){
   })
 }
 
+// Take suser back to homepage
 function toHomepage(event){
   event.preventDefault();
   window.location.href = "../../index.html";
 }
 
+// Allows user to scroll sideways through similar films
 function sideDrag(e){
   const slider = document.getElementById("items");
   let isDown = false;
@@ -217,6 +223,7 @@ function sideDrag(e){
 
 }
 
+// Shows load screen for two seconds to allow all images and details to render
 function load(){
   window.addEventListener('load', () => {
     setTimeout(()=>{
@@ -227,6 +234,7 @@ function load(){
     }, 2000)
   });
 }
+
 
 function init(){
   load();
