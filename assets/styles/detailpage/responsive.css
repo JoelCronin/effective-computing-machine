@@ -37,6 +37,11 @@
     font-size: 100px;
   }
 
+  /* body{
+    zoom: 70%;
+  } */
+
+
 }
 
   
@@ -87,7 +92,6 @@
     position: relative;
     right: 0px;
     left: 00px;
-
   }
 
   .section-q {

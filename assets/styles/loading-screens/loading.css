@@ -20,7 +20,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    filter: blur(5px);
+    filter: blur(160px);
     z-index: -1;
 }
 
