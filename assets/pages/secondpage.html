@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie App</title>
-    <link rel="stylesheet" href="../styles/details.css">
-    <link rel="stylesheet" href="../styles/side_swipe.css">
+    <link rel="stylesheet" href="../styles/detailpage/details.css">
+    <link rel="stylesheet" href="../styles/detailpage/side_swipe.css">
+    <link rel="stylesheet" href="../styles/detailpage/responsive.css">
+    <link rel="stylesheet" href="../styles/loading-screens/loading.css">
     <link rel="icon" href="../img/browser-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 <body>
 
-    <div  class="ewfuihe"  id="blueigdiud"></div>
+    <div class="ewfuihe"  id="blueigdiud"></div>
 
-    <div class="boxxyy-4">
+    <div id="content" class="boxxyy-4">
         <header class="hehe">
             <h1 id="second-page-title"></h1>
             <div class="search-cont">
@@ -25,15 +27,18 @@
         </header>
 
         <div class="box-5">
+            
+            <i id="plus-button" class="fa-solid plus fa-circle-plus"></i>
+
             <div class="box-3">
                 <span>
                     <img id="second-page-image" class="movie-selected-poster" >
+
                     <div>
-                
                         <span data-descr="Our rating uses an average of IMDB, MetaCritic and Rotten Tomatoes ratings to give an even more accurate rating to you"><i id="locks" class="mesh fa-solid fa-comment"></i></span>
                         <h1 id="rating-text"></h1>
                     </div>
-                
+
                 </span>
     
                 <div class="descript-box">
@@ -117,7 +122,7 @@
 
                 </div>
 
-                <div class="descript-box">
+                <div class="descript-box third-box">
                     <div class="description text details">
                         <h3>Director/s</h3>
                         <br>
@@ -155,12 +160,54 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
-        <h1 class="titlle">More Like This</h1>
+        <div class="middle-container">
+            <div class="section-q">
+                <div class="section-x">
+                    
+                    <div class="comment-box">
+                        <h2 id="first-username">N/A</h2>
+                       <div class="info-box">
+                        <img id="profile-pic-1"  src="../img/profile-placeholder.png" alt="profilepic">
+                        <p id="comment-content-1">No Comment Avalible</p>
+                       </div>
+                    </div>
+
+                    <div class="comment-box">
+                        <h2 id="username-2">N/A</h2>
+                       <div class="info-box">
+                        <img id="profile-pic" src="../img/profile-placeholder.png" alt="profilepic">
+                        <p id="comment-content-2">No Comment Avalible</p>
+                       </div>
+                    </div>
+
+                    <div class="comment-box">
+                        <h2 id="username-3">N/A</h2>
+                       <div class="info-box">
+                        <img id="profile-pic" src="../img/profile-placeholder.png" alt="profilepic">
+                        <p id="comment-content-3">No Comment Avalible</p>
+                       </div>
+                    </div>
+
+                    <div class="comment-box">
+                        <h2 id="username-4">N/A</h2>
+                       <div class="info-box">
+                        <img id="profile-pic" src="../img/profile-placeholder.png" alt="profilepic">
+                        <p id="comment-conten-4">No Comment Avalible</p>
+                       </div>
+                    </div>
+
+                </div>
+                <iframe width="420" height="345" allow='autoplay' id="video"></iframe>
+            </div>
+        </div>
+
+        <h1 class="titlle">Descover More</h1>
 
         <div class="slider-cont">
-            <div class="media-scroller snaps-inline">
+            <div id="items" class="media-scroller snaps-inline">
                 <div class="media-element">
                     <img id="scroll-1"/>
                 </div>
@@ -211,8 +258,11 @@
 
     </div>
 
+    <div id="load" class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+
 </body>
 <script src="../js/secondscript.js"></script>
 <script src="https://kit.fontawesome.com/17aa9ecf2c.js" crossorigin="anonymous"></script>
-
 </html>
