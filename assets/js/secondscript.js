@@ -260,3 +260,4 @@ favoriteMovie.addEventListener("click", function(event){
     localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
   }  
 })
+
