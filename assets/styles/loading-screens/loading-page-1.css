@@ -44,9 +44,9 @@
   vertical-align: top;
   display: inline-block;
   width: 100%;
-  background-color: #fff;
+  background-color: rgb(75, 158, 75);
   animation: loader-inner 2s infinite ease-in;
-  /* border-radius: 100%; */
+  border-radius: 10px;
 
 }
 
