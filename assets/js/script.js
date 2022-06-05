@@ -115,13 +115,11 @@ function display_movies(url){
   });
 }
 
-function displayHistory() {
+function displayStorageMovies(img, title) {
   removeElements();
-  let historyImg = JSON.parse(localStorage.getItem("historyImg"));
-  let historyTitle = JSON.parse(localStorage.getItem("historyTitle"));
 
-  if(historyImg != null){    
-    for(let i=0; i < historyImg.length; i++){
+  if(img != null){    
+    for(let i=0; i < img.length; i++){
       let movie_div = document.createElement("div");
       let container_div = document.createElement("div");
       let box_1_div = document.createElement("div");
@@ -132,7 +130,7 @@ function displayHistory() {
       movie_div.setAttribute("class", "movie");
       container_div.setAttribute("class", "container");
       box_1_div.setAttribute("class", "box-1");
-      img_tag.setAttribute("id", historyTitle[i]);
+      img_tag.setAttribute("id", title[i]);
       img_tag.setAttribute("class", "poster");
       title_tag.setAttribute("class", "title");
       date_tag.setAttribute("class", "date");
@@ -144,24 +142,22 @@ function displayHistory() {
       container_div.appendChild(title_tag);
       container_div.appendChild(date_tag);
 
-      if(historyImg[i].includes("/assets/img/no-poster-available.jpg")){
+      if(img[i].includes("/assets/img/no-poster-available.jpg")){
         img_tag.setAttribute("src", "./assets/img/no-poster-available.jpg");
         img_tag.style.height = "412.5px";
       }else{                
-        img_tag.setAttribute("src", `${historyImg[i]}`);
+        img_tag.setAttribute("src", `${img[i]}`);
       }
-      title_tag.innerText = `${historyTitle[i]}`
+      title_tag.innerText = `${title[i]}`
 
       img_tag.addEventListener("click", nextPageImage)
     }
     
-    if(historyImg.length <= 5){
+    if(img.length <= 5){
       box2.style.gap = "80px";
     }else{
       box2.style.gap = "0px";
     }
-
-    // localStorage.setItem("historyUrl", JSON.stringify(url));
   }
 }
 
@@ -205,6 +201,7 @@ function nextPageImage(event){
 
     window.location.href = "./assets/pages/secondpage.html";
     localStorage.setItem("title", event.target.id)
+    localStorage.setItem("img", event.target.src)
 }
 
 sidebarBtn.forEach(function(sidebarBtn){
@@ -224,13 +221,24 @@ sidebarBtn.forEach(function(sidebarBtn){
           display_movies(urlNewMovies);
           searchDisplay.textContent = "Searching: New Movies" 
       } else if (event.target.id === "history"){
-          displayHistory();
-          localStorage.setItem("historyUrl", JSON.stringify("displayHistory();"));
+          let historyImg = JSON.parse(localStorage.getItem("historyImg"));
+          let historyTitle = JSON.parse(localStorage.getItem("historyTitle"));
+          displayStorageMovies(historyImg, historyTitle);
+          localStorage.setItem("historyUrl", "history");
           searchDisplay.textContent = "Searching: History" 
       } else if (event.target.id === "upComing"){
           display_movies(urlUpcomimg);
           searchDisplay.textContent = "Searching: Upcoming" 
-      }else{
+      } else if (event.target.id === "crack"){
+          let favoriteImg = JSON.parse(localStorage.getItem("favoriteMovesImg"));
+          let favoriteTitle = JSON.parse(localStorage.getItem("favoriteMovesTitle"));
+          console.log(favoriteImg);
+          console.log(favoriteTitle);
+          console.log("clicked crack");
+          displayStorageMovies(favoriteImg, favoriteTitle);
+          localStorage.setItem("historyUrl", "favorite");
+          searchDisplay.textContent = "Searching: Favorite Movies"           
+      } else {
           display_movies(urlTopRated);
           searchDisplay.textContent = "Searching: Top rated" 
       }
@@ -253,8 +261,10 @@ function init(){
   display_movies(urlPopular);
   } else if(localStorage.getItem("historyUrl").includes("https:")){
   display_movies(JSON.parse(localStorage.getItem("historyUrl")));
+  } else if (localStorage.getItem("historyUrl") == "history"){
+  displayStorageMovies(JSON.parse(localStorage.getItem("historyImg")), JSON.parse(localStorage.getItem("historyTitle")));
   } else {
-  displayHistory();
+  displayStorageMovies(JSON.parse(localStorage.getItem("favoriteMovesImg")), JSON.parse(localStorage.getItem("favoriteMovesTitle")));
   }
   searchDisplay.textContent = "" 
 }

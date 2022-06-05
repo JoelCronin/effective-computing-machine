@@ -7,7 +7,7 @@ const movieSecondPage = localStorage.getItem("title");
 const backButton = document.getElementById("back-button")
 const ratingsText = document.getElementById("rating-text");
 const ratingsBubble = document.getElementById("locks");
-
+const favoriteMovie = document.getElementById("plus-button");
 
 function getOMDBData(){
     var movieSecondPage = localStorage.getItem("title");
@@ -67,14 +67,13 @@ function getOMDBData(){
         ratingsText.innerText = ""
         } 
       }
-  })
+    })
 }
 
 function getIMDBData(){
   let chosen_title = localStorage.getItem("title");
   const search_api = `https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=${chosen_title}`;
   const img_path = "https://image.tmdb.org/t/p/w1280";
-
   fetch(search_api)
     .then((response)=>{return response.json()})
     .then((data) => {
@@ -237,3 +236,27 @@ function init(){
 }
 
 init();
+
+// favorite movie event listener add favorite movie information to local storage
+favoriteMovie.addEventListener("click", function(event){
+  event.preventDefault();
+  
+  if(localStorage.getItem("favoriteMovesImg") != null){
+    if(!localStorage.getItem("favoriteMovesImg").includes(localStorage.getItem("img"))){
+      let resultsImg = JSON.parse(localStorage.getItem("favoriteMovesImg"));
+      let resultsTitle = JSON.parse(localStorage.getItem("favoriteMovesTitle"));
+
+      resultsImg.push(localStorage.getItem("img"));
+      resultsTitle.push(localStorage.getItem("title"));
+      localStorage.setItem("favoriteMovesImg", JSON.stringify(resultsImg));
+      localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
+    }
+  }else{
+    let resultsImg = [];
+    let resultsTitle = [];
+    resultsImg.push(localStorage.getItem("img"));
+    resultsTitle.push(localStorage.getItem("title"));
+    localStorage.setItem("favoriteMovesImg", JSON.stringify(resultsImg));
+    localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
+  }  
+})
