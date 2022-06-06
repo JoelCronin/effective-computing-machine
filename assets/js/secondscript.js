@@ -135,7 +135,7 @@ function getTrailer(id){
       if(data.results == 0){
         document.getElementById("video").style.display = "none";
       } else {
-        let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=0";
+        let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=1";
         document.getElementById("video").setAttribute("src", video);
         document.getElementById("video").style.display = "block";
       }
@@ -164,11 +164,6 @@ function getComments(id){
     if(results[2]){
       document.getElementById("username-3").innerText = results[2].author_details.username;
       document.getElementById("comment-content-3").innerHTML = results[2].content;
-    } 
-
-    if(results[3]){
-      document.getElementById("username-4").innerText = results[3].author_details.username;
-      document.getElementById("comment-content-4").innerHTML = results[3].content;
     } 
   })
 }
