@@ -2,6 +2,7 @@ var OMDBKey = "84b19fcd"
 var searchButton = document.getElementById('search-button')
 var rating = document.getElementById("rating")
 const box = document.getElementById("box")
+// Used MomentJS to keep 'In Theatres' and "Upcoming" sections time relevant
 var currentYear = moment().format("YYYY")
 var currentDate = moment().format("YYYY-MM-DD");
 var futureDate = moment().add(6, 'month').format("YYYY-MM-DD");
