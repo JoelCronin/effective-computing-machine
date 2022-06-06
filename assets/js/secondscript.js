@@ -97,6 +97,7 @@ function getIMDBData(){
       }
       getTrailer(data_id);
       getComments(data_id);
+      getProvider(data_id);
     });
 }
 
@@ -206,37 +207,13 @@ function sideDrag(e){
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * 3; //scroll-fast
     slider.scrollLeft = scrollLeft - walk;
-    console.log(walk);
   });
   
 
 }
 
-// Shows load screen for two seconds to allow all images and details to render
-function load(){
-  window.addEventListener('load', () => {
-    setTimeout(()=>{
-        document.getElementById("blueigdiud").style.display = 'block';
-        document.getElementById("content").style.display = 'block';
-        document.getElementById("load").style.display = 'none';
-    }, 2000)
-  });
-}
-
-
-function init(){
-  load();
-  getOMDBData();
-  getIMDBData();
-  byGenre();
-  sideDrag();
-  backButton.addEventListener("click", toHomepage);
-}
-
-init();
-
 // favorite movie event listener add favorite movie information to local storage
-favoriteMovie.addEventListener("click", function(event){
+function favorite(event){
   event.preventDefault();
   
   if(localStorage.getItem("favoriteMovesImg") != null){
@@ -257,7 +234,48 @@ favoriteMovie.addEventListener("click", function(event){
     localStorage.setItem("favoriteMovesImg", JSON.stringify(resultsImg));
     localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
   }  
-})
+}
+
+function getProvider(id){
+
+  const api = `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=04c35731a5ee918f014970082a0088b1`;
+
+  // fetch(api)
+  //   .then((response)=>{return response.json()})
+  //   .then((data)=>{
+  //     document.getElementById("netflix").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("disney").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("amazon").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("apple").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("crave").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("cineplex").setAttribute("href", data.results.AE.link);
+  //   });
+  
+}
+
+function load(){
+  window.addEventListener('load', () => {
+    setTimeout(()=>{
+        document.getElementById("blueigdiud").style.display = 'block';
+        document.getElementById("content").style.display = 'block';
+        document.getElementById("load").style.display = 'none';
+    }, 2000)
+  });
+}
+
+
+function init(){
+  load();
+  getOMDBData();
+  getIMDBData();
+  byGenre();
+  sideDrag();
+  backButton.addEventListener("click", toHomepage);
+  favoriteMovie.addEventListener("click", favorite);
+}
+
+init();
+
 
 function duplicateCheck(resultsImg, event) {
   var check = 0;
