@@ -32,7 +32,7 @@ body{
   right: 0;
   bottom: 0;
   filter: blur(160px);
-  height: calc(100% + 100vh);
+  height: calc(100% + 180vh);
   z-index: -1;
   user-select: none;
 }

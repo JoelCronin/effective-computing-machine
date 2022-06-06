@@ -97,6 +97,7 @@ function getIMDBData(){
       }
       getTrailer(data_id);
       getComments(data_id);
+      getProvider(data_id);
     });
 }
 
@@ -123,8 +124,8 @@ function byGenre(){
 function getTrailer(id){
   const video_api = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1`;
   const video_path = "https://www.youtube.com/embed/";
-  // const auto_play = "?autoplay=1";
-  const auto_play = "";
+  const auto_play = "?autoplay=1";
+  // const auto_play = "";
   const mute = "&mute=1"
 
   fetch(video_api)
@@ -133,15 +134,11 @@ function getTrailer(id){
       
       if(data.results == 0){
         document.getElementById("video").style.display = "none";
-        console.log(data.results)
       } else {
         let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=0";
         document.getElementById("video").setAttribute("src", video);
         document.getElementById("video").style.display = "block";
       }
-
-      console.log(data.results == 0)
-      console.log(data.results)
     })
 }
 
@@ -237,6 +234,23 @@ function favorite(event){
     localStorage.setItem("favoriteMovesImg", JSON.stringify(resultsImg));
     localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
   }  
+}
+
+function getProvider(id){
+
+  const api = `https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=04c35731a5ee918f014970082a0088b1`;
+
+  // fetch(api)
+  //   .then((response)=>{return response.json()})
+  //   .then((data)=>{
+  //     document.getElementById("netflix").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("disney").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("amazon").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("apple").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("crave").setAttribute("href", data.results.AE.link);
+  //     document.getElementById("cineplex").setAttribute("href", data.results.AE.link);
+  //   });
+  
 }
 
 function load(){
