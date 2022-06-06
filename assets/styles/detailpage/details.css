@@ -40,8 +40,8 @@ body{
 .mesh{
   font-size: 120px;
   position: relative;
-  bottom: 130px;
-  left: 525px;
+  bottom: 140px;
+  left: 535px;
   z-index: 16;
 
 }
@@ -351,7 +351,7 @@ iframe{
 
 #rating-text{
   color: white;
-  font-size: 50px;
+  font-size: 38px;
   position: relative;
   bottom: 226px;
   left: 555px;
@@ -422,7 +422,7 @@ iframe{
 
 .titlle{
   /* border: 1px solid lightgray; */
-
+  color: white;
   position: relative;
   top: 90px;
   left: 80px;
