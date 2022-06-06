@@ -28,7 +28,7 @@ var urlPopular = api + most_popular_query + key;
 var urlInTheaters = api + inTheatures_query + key;
 var urlKids = api + most_popular_kids_query + key;
 var urlNewMovies = api + new_movie_query + key;
-var urlTopRated = api + topRated + key; 
+var urlTopRated = "https://api.themoviedb.org/3/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"; 
 var urlUpcomimg = api + up_coming_query + key;
 var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + localStorage.getItem("movie")
 
