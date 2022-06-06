@@ -123,8 +123,8 @@ function byGenre(){
 function getTrailer(id){
   const video_api = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1`;
   const video_path = "https://www.youtube.com/embed/";
-  const auto_play = "?autoplay=1";
-  // const auto_play = "";
+  // const auto_play = "?autoplay=1";
+  const auto_play = "";
   const mute = "&mute=1"
 
   fetch(video_api)
@@ -133,11 +133,15 @@ function getTrailer(id){
       
       if(data.results == 0){
         document.getElementById("video").style.display = "none";
+        console.log(data.results)
       } else {
         let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=0";
         document.getElementById("video").setAttribute("src", video);
         document.getElementById("video").style.display = "block";
       }
+
+      console.log(data.results == 0)
+      console.log(data.results)
     })
 }
 
@@ -206,37 +210,13 @@ function sideDrag(e){
     const x = e.pageX - slider.offsetLeft;
     const walk = (x - startX) * 3; //scroll-fast
     slider.scrollLeft = scrollLeft - walk;
-    console.log(walk);
   });
   
 
 }
 
-// Shows load screen for two seconds to allow all images and details to render
-function load(){
-  window.addEventListener('load', () => {
-    setTimeout(()=>{
-        document.getElementById("blueigdiud").style.display = 'block';
-        document.getElementById("content").style.display = 'block';
-        document.getElementById("load").style.display = 'none';
-    }, 2000)
-  });
-}
-
-
-function init(){
-  load();
-  getOMDBData();
-  getIMDBData();
-  byGenre();
-  sideDrag();
-  backButton.addEventListener("click", toHomepage);
-}
-
-init();
-
 // favorite movie event listener add favorite movie information to local storage
-favoriteMovie.addEventListener("click", function(event){
+function favorite(event){
   event.preventDefault();
   
   if(localStorage.getItem("favoriteMovesImg") != null){
@@ -257,7 +237,31 @@ favoriteMovie.addEventListener("click", function(event){
     localStorage.setItem("favoriteMovesImg", JSON.stringify(resultsImg));
     localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
   }  
-})
+}
+
+function load(){
+  window.addEventListener('load', () => {
+    setTimeout(()=>{
+        document.getElementById("blueigdiud").style.display = 'block';
+        document.getElementById("content").style.display = 'block';
+        document.getElementById("load").style.display = 'none';
+    }, 2000)
+  });
+}
+
+
+function init(){
+  load();
+  getOMDBData();
+  getIMDBData();
+  byGenre();
+  sideDrag();
+  backButton.addEventListener("click", toHomepage);
+  favoriteMovie.addEventListener("click", favorite);
+}
+
+init();
+
 
 function duplicateCheck(resultsImg, event) {
   var check = 0;

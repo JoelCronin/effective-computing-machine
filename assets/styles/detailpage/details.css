@@ -402,6 +402,58 @@ iframe{
   border-radius: 6px;
 }
 
+#watch-title{
+  font-weight: 600;
+  font-size: 29px;
+  position: relative;
+  bottom: 44px;
+  left: 81px;
+}
+
+.watch-container{
+  /* border: 1px solid white; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  user-select: none;
+}
+
+.watch-now{
+  /* border: 1px solid white; */
+  width: 93%;
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 8px;
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+  
+}
+
+.provider img{
+  width: 175px;
+  height: 175px;
+  border-radius: 100%;
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s;
+
+}
+
+#cin{
+  background-color: white;
+}
+
+.provider img:hover{
+  box-shadow: -1px 12px 15px 0px rgba(0,0,0,0.75);
+  cursor: pointer;
+
+}
+
+
+.provider h3{
+  text-align: center;
+  font-size: 24px;
+  margin-top: 10px;
+}
 
 .scoll-container{
   margin-top: 30px;

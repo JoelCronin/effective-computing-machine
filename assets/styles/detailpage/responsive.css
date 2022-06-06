@@ -3,6 +3,7 @@
     position: relative;
     right: 40px;
     left: 790px;
+    margin-top: 90px;
 
   }
   .section-q {
@@ -12,11 +13,12 @@
   }
 
   .section-x {
-    height: 110%;
+    height: 99%;
     position: relative;
     bottom: 1000px;
     right: 435px;
     width: 1335px;
+    margin-top: 73px;
   }
 
   .info-box p{
@@ -25,7 +27,7 @@
 
   #video{
     position: absolute;
-    top: 2400px;
+    top: 2540px;
     left: 20%;
     height: 1000px;
     width: 1500px;
@@ -86,6 +88,7 @@
     bottom: 0px;
     right: 0px;
     margin-bottom: 120px;
+    margin-top: -79px;
   } 
 
   .third-box{
