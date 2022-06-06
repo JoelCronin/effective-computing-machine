@@ -135,7 +135,7 @@ function getTrailer(id){
       if(data.results == 0){
         document.getElementById("video").style.display = "none";
       } else {
-        let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=0";
+        let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=1";
         document.getElementById("video").setAttribute("src", video);
         document.getElementById("video").style.display = "block";
       }

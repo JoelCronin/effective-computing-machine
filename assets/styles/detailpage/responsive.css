@@ -34,9 +34,17 @@
   }
 
   .plus{
-    left: -30px;
-    top: 0px;
+    left: -23%;
+    top: 157px;
     font-size: 100px;
+  }
+  .watch-now {
+    margin-top: 83px;
+  }
+
+  #watch-title{
+    bottom: -54px;
+    left: 96px;
   }
 
   /* body{
@@ -99,8 +107,8 @@
 
   .third-box{
     position: relative;
-    right: 0px;
-    left: 00px;
+    left: -25px;
+    bottom: 45px;
   }
 
   .section-q {
