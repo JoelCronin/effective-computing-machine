@@ -21,14 +21,14 @@ const inTheatures_query = "/discover/movie?primary_release_date.gte=" + earlyDat
 const most_popular_kids_query = "/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc";
 const new_movie_query = "/discover/movie?primary_release_year=" + currentYear;
 const poster_path = "https://image.tmdb.org/t/p/w1280";
-const topRated = "/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc";
+const topRated = "/discover/movie?primary_release_year=2010&sort_by=vote_average.desc";
 const up_coming_query = "/discover/movie?primary_release_date.gte=" + currentDate + "&primary_release_date.lte=" + futureDate;
 
 var urlPopular = api + most_popular_query + key;
 var urlInTheaters = api + inTheatures_query + key;
 var urlKids = api + most_popular_kids_query + key;
 var urlNewMovies = api + new_movie_query + key;
-var urlTopRated = "https://api.themoviedb.org/3/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"; 
+var urlTopRated = api + topRated + key;
 var urlUpcomimg = api + up_coming_query + key;
 var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + localStorage.getItem("movie")
 
