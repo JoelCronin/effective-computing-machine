@@ -124,8 +124,8 @@ function byGenre(){
 function getTrailer(id){
   const video_api = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1`;
   const video_path = "https://www.youtube.com/embed/";
-  const auto_play = "?autoplay=1";
-  // const auto_play = "";
+  // const auto_play = "?autoplay=1";
+  const auto_play = "";
   const mute = "&mute=1"
 
   fetch(video_api)
@@ -164,11 +164,6 @@ function getComments(id){
     if(results[2]){
       document.getElementById("username-3").innerText = results[2].author_details.username;
       document.getElementById("comment-content-3").innerHTML = results[2].content;
-    } 
-
-    if(results[3]){
-      document.getElementById("username-4").innerText = results[3].author_details.username;
-      document.getElementById("comment-content-4").innerHTML = results[3].content;
     } 
   })
 }
