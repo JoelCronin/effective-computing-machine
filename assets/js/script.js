@@ -32,11 +32,12 @@ var urlTopRated = api + topRated + key;
 var urlUpcomimg = api + up_coming_query + key;
 var urlLastSearch = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + localStorage.getItem("movie")
 
-//set searchMovie function to display movies user searches for
+//Event listener for the search button which takes in user input 
 searchButton.addEventListener('click', function(event){
     event.preventDefault();
     var movie = document.querySelector(".input").value
     searchDisplay.textContent = "Searching: " + document.querySelector(".input").value
+    // Prompts user to enter text if they try to search with nothing in search bar
     if(movie == ""){      
       input.style.border = "1px solid red";
       input.style.boxShadow = "0 0 5px red";
@@ -52,6 +53,7 @@ searchButton.addEventListener('click', function(event){
     }
 })
 
+// Takes user input and performs API fetch to TMDB to gather data
 function displaySearchMovie(movie) {
   removeElements();
   let url = "https://api.themoviedb.org/3/search/movie?api_key=04c35731a5ee918f014970082a0088b1&query=" + movie
@@ -59,6 +61,7 @@ function displaySearchMovie(movie) {
   localStorage.setItem("historyUrl", JSON.stringify(url));
 }
 
+// Allows user to also use enter button to trigger search
 input.addEventListener("keypress", function(event) {
   // If the user presses the "Enter" key on the keyboard
   if (event.key === "Enter") {
@@ -69,6 +72,7 @@ input.addEventListener("keypress", function(event) {
   }
 });
 
+// Uses the API call to display the movies on the homepage with their images and titles.
 function display_movies(url){
   fetch(url)
   .then(response => response.json())
@@ -98,6 +102,7 @@ function display_movies(url){
       container_div.appendChild(title_tag);
       container_div.appendChild(date_tag);
 
+// If API does not have an image with it then uses placeholder instead
       if(results[i].poster_path != null){
         img_tag.setAttribute("src", `${poster_path}${results[i].poster_path}`);
       }else{
@@ -108,12 +113,13 @@ function display_movies(url){
       date_tag.innerText = `${results[i].release_date}`
 
       localStorage.setItem("results", JSON.stringify(results));
-
+// Adds event listener to all images so opens next page if clicked on
       img_tag.addEventListener("click", nextPageImage)
     }
     localStorage.setItem("historyUrl", JSON.stringify(url));
   });
 }
+
 
 function displayStorageMovies(img, title) {
   removeElements();
@@ -161,6 +167,7 @@ function displayStorageMovies(img, title) {
   }
 }
 
+// Removes old movies from page to avoid stacking once new search is performed
 function removeElements(){
   var child = box.lastElementChild;
     while (child) {
@@ -169,6 +176,7 @@ function removeElements(){
   }
 }
 
+//Stops duplicate images from being displayed in searches
 function duplicateCheck(resultsImg, event) {
   var check = 0;
   for(let i=0; i < resultsImg.length; i++){
@@ -179,6 +187,7 @@ function duplicateCheck(resultsImg, event) {
   return check
 }
 
+// Adds all information needed for second page to local storage. Then changes page to the secondpage.html
 function nextPageImage(event){
     event.preventDefault();
     if(localStorage.getItem("historyImg") != null){
@@ -204,6 +213,7 @@ function nextPageImage(event){
     localStorage.setItem("img", event.target.src)
 }
 
+// When each sidebar button is clicked on it will perform different API call and then dispaly the relevant movies and update "searching:" text content
 sidebarBtn.forEach(function(sidebarBtn){
   sidebarBtn.addEventListener("click", function(event){
       event.preventDefault();
@@ -242,6 +252,7 @@ sidebarBtn.forEach(function(sidebarBtn){
   })
 })
 
+// Shows load screen for two seconds to allow all images and details to render
 function load(){
   window.addEventListener('load', () => {
     setTimeout(()=>{
@@ -252,6 +263,7 @@ function load(){
   });
 }
 
+// Uses local storage to ensure page shows last search upon loading
 function init(){
   load();
   if (localStorage.getItem("historyUrl")== null){
