@@ -8,6 +8,7 @@ const backButton = document.getElementById("back-button")
 const ratingsText = document.getElementById("rating-text");
 const ratingsBubble = document.getElementById("locks");
 const favoriteMovie = document.getElementById("plus-button");
+const scroll = document.querySelectorAll(".scroll");
 
 function getOMDBData(){
     var movieSecondPage = localStorage.getItem("title");
@@ -107,23 +108,11 @@ function byGenre(){
     .then((response)=>{return response.json()})
     .then((data)=>{
       let results = data.results;
-      
-      document.getElementById("scroll-1").setAttribute("src", img_path + results[0].poster_path);
-      document.getElementById("scroll-2").setAttribute("src", img_path + results[1].poster_path);
-      document.getElementById("scroll-3").setAttribute("src", img_path + results[2].poster_path);
-      document.getElementById("scroll-4").setAttribute("src", img_path + results[3].poster_path);
-      document.getElementById("scroll-5").setAttribute("src", img_path + results[4].poster_path);
-      document.getElementById("scroll-6").setAttribute("src", img_path + results[5].poster_path);
-      document.getElementById("scroll-7").setAttribute("src", img_path + results[6].poster_path);
-      document.getElementById("scroll-8").setAttribute("src", img_path + results[7].poster_path);
-      document.getElementById("scroll-9").setAttribute("src", img_path + results[8].poster_path);
-      document.getElementById("scroll-10").setAttribute("src", img_path + results[9].poster_path);
-      document.getElementById("scroll-11").setAttribute("src", img_path + results[10].poster_path);
-      document.getElementById("scroll-12").setAttribute("src", img_path + results[11].poster_path);
-      document.getElementById("scroll-13").setAttribute("src", img_path + results[12].poster_path);
-      document.getElementById("scroll-14").setAttribute("src", img_path + results[13].poster_path);
-      document.getElementById("scroll-15").setAttribute("src", img_path + results[14].poster_path);
-  })
+      for(let i = 1; i < pages.length; i++){
+      document.getElementById("scroll-" + i).setAttribute("src", img_path + results[i].poster_path);
+      document.getElementById("scroll-" + i).setAttribute("data-title", results[i].title);
+      }
+    })
 } 
 
 function getTrailer(id){
@@ -137,7 +126,7 @@ function getTrailer(id){
     .then((response)=>{return response.json()})
     .then((data)=>{
       
-      if(data.results == []){
+      if(data.results == 0){
         document.getElementById("video").style.display = "none";
       } else {
         let video = video_path + data.results[0].key + auto_play + mute + "&loop=1" + "&modestbranding=1&autohide=1&showinfo=0&controls=0";
@@ -218,7 +207,6 @@ function sideDrag(e){
 function load(){
   window.addEventListener('load', () => {
     setTimeout(()=>{
-        console.log("display elements")
         document.getElementById("blueigdiud").style.display = 'block';
         document.getElementById("content").style.display = 'block';
         document.getElementById("load").style.display = 'none';
@@ -260,3 +248,48 @@ favoriteMovie.addEventListener("click", function(event){
     localStorage.setItem("favoriteMovesTitle", JSON.stringify(resultsTitle));
   }  
 })
+
+function duplicateCheck(resultsImg, event) {
+  var check = 0;
+  for(let i=0; i < resultsImg.length; i++){
+    if(event.target.src == resultsImg[i]){
+      check++;
+    }
+  }
+  return check
+}
+
+// bottom scroll event listener, when user click picture, it will go to next movie page
+// and get the next movie information, store it in local storage
+scroll.forEach(function(element){
+  element.addEventListener("click", function(event){
+    event.preventDefault();
+    
+    //get data-title from element
+    let title = $(this).attr("data-title"); 
+    localStorage.setItem("title", title)
+    localStorage.setItem("img", event.target.src) 
+
+    if(localStorage.getItem("historyImg") != null){
+      let resultsImg = JSON.parse(localStorage.getItem("historyImg"));
+      let resultsTitle = JSON.parse(localStorage.getItem("historyTitle"));
+      if(duplicateCheck(resultsImg, event) == 0){
+        resultsImg.push(event.target.src);
+        resultsTitle.push(title);
+        localStorage.setItem("historyImg", JSON.stringify(resultsImg));
+        localStorage.setItem("historyTitle", JSON.stringify(resultsTitle));
+      }
+    }else{
+      let resultsImg = [];
+      let resultsTitle = [];
+      resultsImg.push(event.target.src);
+      resultsTitle.push(title);
+      localStorage.setItem("historyImg", JSON.stringify(resultsImg));
+      localStorage.setItem("historyTitle", JSON.stringify(resultsTitle));
+    }
+
+    window.location.reload();    
+  });
+})
+
+
