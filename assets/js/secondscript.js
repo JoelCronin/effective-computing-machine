@@ -124,8 +124,8 @@ function byGenre(){
 function getTrailer(id){
   const video_api = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=04c35731a5ee918f014970082a0088b1`;
   const video_path = "https://www.youtube.com/embed/";
-  // const auto_play = "?autoplay=1";
-  const auto_play = "";
+  const auto_play = "?autoplay=1";
+  // const auto_play = "";
   const mute = "&mute=1"
 
   fetch(video_api)
