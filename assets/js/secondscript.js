@@ -271,7 +271,7 @@ function init(){
 
 init();
 
-
+//function to check if user clicked on the same movie again
 function duplicateCheck(resultsImg, event) {
   var check = 0;
   for(let i=0; i < resultsImg.length; i++){
