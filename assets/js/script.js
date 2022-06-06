@@ -14,7 +14,7 @@ var input = document.querySelector(".input");
 var box2 = document.querySelector(".box-2");
 var searchDisplay = document.getElementById("current-search")
 
-const api = "http://api.themoviedb.org/3";
+const api = "https://api.themoviedb.org/3";
 const key = "&api_key=04c35731a5ee918f014970082a0088b1&page=1";
 const most_popular_query = "/discover/movie?sort_by=popularity.desc"
 const inTheatures_query = "/discover/movie?primary_release_date.gte=" + earlyDate + "&primary_release_date.lte=" + lateDate;
